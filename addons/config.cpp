@@ -29,8 +29,14 @@ class CfgPatches
 			"A3_Weapons_F_orange",
 			"A3_Weapons_F_lxws",
 			"A3_Weapons_F_EXP",
-			"A3_Weapons_F_enoch"
-
+			"A3_Weapons_F_enoch",
+			"jsrs_soundmod_complete_edition_soundfiles",
+			"jsrs_soundmod_complete_edition",
+			"a3_sounds_f",
+			"a3_weapons_f",
+			"a3_sounds_f_exp",
+			"rhsusf_sounds",
+			"rhsusf_c_weaponsounds"
 		};
 	};
 };
@@ -377,6 +383,8 @@ class CfgWeapons
 	class rhs_western_m24_muzzle_slot;
 	class MuzzleSlot: rhs_western_m24_muzzle_slot {};
 	class MuzzleSlot_762 : MuzzleSlot {};
+	class Single{};
+	class Mode_SemiAuto;
 	class Rifle_Base_F : Rifle
 	{
 		class WeaponSlotsInfo;
@@ -385,6 +393,18 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_5RD : Rifle_Base_F
 	{
+		class Single: Mode_SemiAuto
+		{
+			sounds[] = { StandardSound, SilencedSound };
+			class StandardSound
+			{
+				soundsetshot[] = { "jsrs_m590_shot_soundset","jsrs_12x7mm_reverb_soundset" };
+			};
+			class SilencedSound
+			{
+				soundsetshot[] = { "jsrs_asval_shot_soundset","jsrs_9x3mm_sd_reverb_soundset" };
+			};
+		};
 		class WeaponSlotsInfo : WeaponSlotsInfo
 		{
 			class MuzzleSlot : MuzzleSlot
@@ -395,6 +415,18 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_8RD : rhs_weap_M590_5RD
 	{
+		class Single : Mode_SemiAuto
+		{
+			sounds[] = { StandardSound, SilencedSound };
+			class StandardSound
+			{
+				soundsetshot[] = { "jsrs_m590_shot_soundset","jsrs_12x7mm_reverb_soundset" };
+			};
+			class SilencedSound
+			{
+				soundsetshot[] = { "jsrs_asval_shot_soundset","jsrs_9x3mm_sd_reverb_soundset" };
+			};
+		};
 		class WeaponSlotsInfo: WeaponSlotsInfo
 		{
 			class MuzzleSlot: MuzzleSlot
