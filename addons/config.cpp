@@ -23,7 +23,14 @@ class CfgPatches
 			"ACE_Common",
 			"ace_csw",
 			"rhsusf_main_loadorder",
-			"rhs_main"
+			"rhs_main",
+			"A3_Weapons_F_EPA",
+			"A3_Weapons_F_tank",
+			"A3_Weapons_F_orange",
+			"A3_Weapons_F_lxws",
+			"A3_Weapons_F_EXP",
+			"A3_Weapons_F_enoch"
+
 		};
 	};
 };
@@ -32,6 +39,8 @@ class CfgAmmo
 	class B_12Gauge_Slug;
 	class BulletBase;
 	class G_40mm_HE;
+	class APERSBoundingMine_Range_Ammo;
+	class ShotDeployBase;
 	class T_Copper_HP_Slug: B_12Gauge_Slug// High damage extremely low penetration slug
 	{
 		hit = 25;
@@ -116,6 +125,7 @@ class CfgAmmo
 		indirectHit = 5;
 		indirectHitRange = 10.7;
 		model = "\A3\weapons_f\ammo\UGL_slug";
+		fuseDistance = 15;
 	};
 	class T_MV_40mm_HEDP: T_MV_40mm_HE
 	{
@@ -125,19 +135,12 @@ class CfgAmmo
 		indirectHitRange = 3.6;
 		model = "\A3\weapons_f\ammo\UGL_slug";
 	};
-	class T_MV_40mm_HET: T_MV_40mm_HE
+	class T_MV_40mm_HET: T_MV_40mm_HE // can be fixed by possibly using the method for the shotgun, spawning a explosive 2 meters in the air and then blowing it up instantly
 	{
-		deflecting = 90;
-		typicalspeed = 10;
+		typicalspeed = 118;
 		deleteParentWhenTriggered = true;
-		submunitionAmmo = T_HET_Sub;
-		submunitionDirectionType = SubmunitionModelDirection;
-		submunitionParentSpeedCoef = 0.001;
-	};
-	class T_HET_Sub: T_MV_40mm_HE
-	{
-		explosionTime = 0.0001;
-		fuseDistance = 0;
+		submunitionAmmo = "APERSBoundingMine_Range_Ammo";
+		submunitionInitialOffset[] = { 0,0,0 };
 	};
 };
 class CfgMagazines
@@ -366,5 +369,38 @@ class CfgMagazineWells
 	class UGL_40x36
 	{
 	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET"};
+	};
+};
+class CfgWeapons
+{
+	class Rifle;
+	class rhs_western_m24_muzzle_slot;
+	class MuzzleSlot: rhs_western_m24_muzzle_slot {};
+	class MuzzleSlot_762 : MuzzleSlot {};
+	class Rifle_Base_F : Rifle
+	{
+		class WeaponSlotsInfo;
+		class GunParticles;
+		class Eventhandlers;
+	};
+	class rhs_weap_M590_5RD : Rifle_Base_F
+	{
+		class WeaponSlotsInfo : WeaponSlotsInfo
+		{
+			class MuzzleSlot : MuzzleSlot
+			{
+				compatibleItems[] = { "rhsusf_acc_m24_silencer_black" }; 				/// A custom made suppressor for this weapon
+			};
+		};
+	};
+	class rhs_weap_M590_8RD : rhs_weap_M590_5RD
+	{
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			class MuzzleSlot: MuzzleSlot
+			{
+				compatibleItems[] = {"rhsusf_acc_m24_silencer_black"}; 				/// A custom made suppressor for this weapon
+			};
+		};
 	};
 };
