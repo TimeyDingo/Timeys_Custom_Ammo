@@ -392,6 +392,7 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_5RD : Rifle_Base_F
 	{
+		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
 		class Single: Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
