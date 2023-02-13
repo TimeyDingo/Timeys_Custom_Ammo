@@ -383,8 +383,6 @@ class CfgWeapons
 	class rhs_western_m24_muzzle_slot;
 	class MuzzleSlot: rhs_western_m24_muzzle_slot {};
 	class MuzzleSlot_762 : MuzzleSlot {};
-	class Single{};
-	class Mode_SemiAuto;
 	class Rifle_Base_F : Rifle
 	{
 		class WeaponSlotsInfo;
@@ -393,6 +391,8 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_5RD : Rifle_Base_F
 	{
+		scope = 2;
+		class Mode_SemiAuto;
 		class Single: Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -415,7 +415,8 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_8RD : rhs_weap_M590_5RD
 	{
-		class Single : Mode_SemiAuto
+		scope = 2;
+		class Single: Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
 			class StandardSound
