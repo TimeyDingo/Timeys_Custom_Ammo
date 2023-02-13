@@ -40,6 +40,18 @@ class CfgPatches
 		};
 	};
 };
+class CfgMineTriggers
+{
+	class RangeTriggerBounding;
+	class T_Trigger : RangeTriggerBounding
+	{
+		mineTriggerRange = 1000;
+		mineTriggerMass = 1;
+		restrictZoneCenter[] = { 0,0,0 };
+		restrictZoneRadius = 5;
+		mineDelay = 0;
+	};
+};
 class CfgAmmo
 {
 	class B_12Gauge_Slug;
@@ -141,12 +153,32 @@ class CfgAmmo
 		indirectHitRange = 3.6;
 		model = "\A3\weapons_f\ammo\UGL_slug";
 	};
-	class T_MV_40mm_HET: T_MV_40mm_HE // can be fixed by possibly using the method for the shotgun, spawning a explosive 2 meters in the air and then blowing it up instantly
+	class T_MV_40mm_HET: ShotDeployBase // can be fixed by possibly using the method for the shotgun, spawning a explosive 2 meters in the air and then blowing it up instantly
 	{
+		hit = 0;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		fuseDistance = 15;
 		typicalspeed = 118;
-		deleteParentWhenTriggered = true;
-		submunitionAmmo = "APERSBoundingMine_Range_Ammo";
+		submunitionDirectionType = "SubmunitionTargetDirection";
+		deleteParentWhenTriggered = 1;
+		submunitionAmmo = "T_APERS_sub";
+		submunitionInitSpeed = 0;
+		triggerDistance = 1.5;
 		submunitionInitialOffset[] = { 0,0,0 };
+		submunitionParentSpeedCoef = 0;
+	};
+	class T_APERS_sub : APERSBoundingMine_Range_Ammo
+	{
+		hit = 20;
+		indirectHit = 20;
+		indirectHitRange = 20;
+		model = "\A3\Weapons_F\explosives\mine_AP_bouncing";
+		mineModelDisabled = "\A3\Weapons_F\explosives\mine_AP_bouncing_d";
+		defaultMagazine = "APERSBoundingMine_Range_Mag";
+		mineBoundingTime = 0.3;
+		mineBoundingDist = 2.0;
+		mineTrigger = "T_Trigger";
 	};
 };
 class CfgMagazines
@@ -392,6 +424,8 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_5RD : Rifle_Base_F
 	{
+		ACE_twistDirection = 0;
+		ACE_barrelLength = 470;
 		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
 		class Single: Mode_SemiAuto
 		{
@@ -415,6 +449,9 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_8RD : rhs_weap_M590_5RD
 	{
+		ACE_twistDirection = 0;
+		ACE_barrelLength = 510;
+		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
 		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
