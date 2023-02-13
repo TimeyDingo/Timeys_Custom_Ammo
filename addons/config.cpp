@@ -10,7 +10,7 @@ class CfgPatches
 		ammo[] = {};
 		requiredAddons[] =
 		{
-			"A3_Data_F",
+			"A3_Data_F", // replace all with A3 with A3_Data_F_AoW_Loadorder
 			"A3_Data_F_Mark",
 			"A3_Weapons_F",
 			"A3_Data_F_Mark",
@@ -377,12 +377,13 @@ class CfgMagazineWells
 	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET"};
 	};
 };
+class Mode_SemiAuto;
+class rhs_western_m24_muzzle_slot;
+class MuzzleSlot : rhs_western_m24_muzzle_slot {};
+class MuzzleSlot_762 : MuzzleSlot {};
 class CfgWeapons
 {
 	class Rifle;
-	class rhs_western_m24_muzzle_slot;
-	class MuzzleSlot: rhs_western_m24_muzzle_slot {};
-	class MuzzleSlot_762 : MuzzleSlot {};
 	class Rifle_Base_F : Rifle
 	{
 		class WeaponSlotsInfo;
@@ -391,8 +392,6 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_5RD : Rifle_Base_F
 	{
-		scope = 2;
-		class Mode_SemiAuto;
 		class Single: Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -415,8 +414,7 @@ class CfgWeapons
 	};
 	class rhs_weap_M590_8RD : rhs_weap_M590_5RD
 	{
-		scope = 2;
-		class Single: Mode_SemiAuto
+		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
 			class StandardSound
