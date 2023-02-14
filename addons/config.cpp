@@ -8,6 +8,8 @@ class CfgPatches
 		url = "https://steamcommunity.com/id/TimeyTheDingo";
 		magazines[] = {};
 		ammo[] = {};
+		units[] = {};
+		weapons[] = {};
 		requiredAddons[] =
 		{
 			"A3_Data_F", // replace all with A3 with A3_Data_F_AoW_Loadorder
@@ -22,12 +24,10 @@ class CfgPatches
 			"rhsusf_weapons",
 			"ACE_Common",
 			"ace_csw",
-			"rhsusf_main_loadorder",
-			"rhs_main",
+			"rhsusf_main_loadorder",,
 			"A3_Weapons_F_EPA",
 			"A3_Weapons_F_tank",
 			"A3_Weapons_F_orange",
-			"A3_Weapons_F_lxws",
 			"A3_Weapons_F_EXP",
 			"A3_Weapons_F_enoch",
 			"jsrs_soundmod_complete_edition_soundfiles",
@@ -50,6 +50,15 @@ class CfgMineTriggers
 		restrictZoneCenter[] = { 0,0,0 };
 		restrictZoneRadius = 5;
 		mineDelay = 0;
+	};
+	class TankTriggerMagnetic;
+	class T_TriggerMag : TankTriggerMagnetic
+	{
+		mineMagnetic = 1;
+		mineTriggerMass = 20;
+		mineTriggerRange = 1;
+		mineWireStart[] = { 0,0,0 };
+		mineWireEnd[] = { 0,1,0 };
 	};
 };
 class CfgAmmo
@@ -162,13 +171,13 @@ class CfgAmmo
 		typicalspeed = 118;
 		submunitionDirectionType = "SubmunitionTargetDirection";
 		deleteParentWhenTriggered = 1;
-		submunitionAmmo = "T_APERS_sub";
+		submunitionAmmo = "T_HET_sub";
 		submunitionInitSpeed = 0;
 		triggerDistance = 1.5;
 		submunitionInitialOffset[] = { 0,0,0 };
 		submunitionParentSpeedCoef = 0;
 	};
-	class T_APERS_sub : APERSBoundingMine_Range_Ammo
+	class T_HET_sub : APERSBoundingMine_Range_Ammo
 	{
 		hit = 20;
 		indirectHit = 20;
@@ -179,6 +188,25 @@ class CfgAmmo
 		mineBoundingTime = 0.3;
 		mineBoundingDist = 2.0;
 		mineTrigger = "T_Trigger";
+	};
+	class T_40mm_TirePopperDeployer : T_MV_40mm_HET
+	{
+		typicalspeed = 70;
+		fuseDistance = 0;
+		submunitionAmmo = "T_TirePopper";
+		triggerDistance = 0;
+	};
+	class ATMine_Range_Ammo;
+	class T_TirePopper: ATMine_Range_Ammo
+	{
+		hit = 100;
+		indirectHit = 100;
+		indirectHitRange = 0.2;
+		directionalExplosion = 1;
+		explosionAngle = 8;
+		model = "\A3\Weapons_f\Explosives\mine_at";
+		mineTrigger = "T_TriggerMag";
+		triggerWhenDestroyed = 1;
 	};
 };
 class CfgMagazines
@@ -377,6 +405,19 @@ class CfgMagazines
 		mass = 30;
 		picture = "\addons\UI\12GaugeIcon.paa";
 	};
+	class timey_6rnd_40mm_TirePopper : 1Rnd_HE_Grenade_shell
+	{
+		scope = 2;
+		scopeArsenal = 2;
+		ammo = "T_40mm_TirePopperDeployer"
+		initspeed = 80;
+		displayName = "6rnd 40mm T/P";
+		displaynameshort = "6xT/P";
+		descriptionshort = "Type: Deploys a tire popper <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		count = 6;
+		mass = 10;
+		picture = "\addons\UI\12GaugeIcon.paa";
+	};
 };
 class CfgMagazineWells
 {
@@ -398,7 +439,7 @@ class CfgMagazineWells
 	};
 	class CBA_40mm_M203_6rnds
 	{
-	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET"};
+	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper"};
 	};
 	class CBA_40mm_M203
 	{
@@ -441,6 +482,8 @@ class CfgWeapons
 		};
 		class WeaponSlotsInfo : WeaponSlotsInfo
 		{
+			mass = 5;
+			allowedSlots[] = {901,701};
 			class MuzzleSlot : MuzzleSlot
 			{
 				compatibleItems[] = { "rhsusf_acc_m24_silencer_black" }; 				/// A custom made suppressor for this weapon
@@ -466,6 +509,8 @@ class CfgWeapons
 		};
 		class WeaponSlotsInfo: WeaponSlotsInfo
 		{
+			mass = 75;
+			allowedSlots[] = {901};
 			class MuzzleSlot: MuzzleSlot
 			{
 				compatibleItems[] = {"rhsusf_acc_m24_silencer_black"}; 				/// A custom made suppressor for this weapon
