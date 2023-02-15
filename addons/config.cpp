@@ -60,16 +60,18 @@ class CfgMineTriggers
 		mineWireEnd[] = { 0,1,0 };
 	};
 };
-class CfgAmmo
+class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 {
 	class B_12Gauge_Slug;
 	class BulletBase;
 	class G_40mm_HE;
+	class rhs_ammo_12g_00buckshot;
+	class rhs_ammo_12g_00buckshot_pellet;
 	class APERSBoundingMine_Range_Ammo;
 	class ShotDeployBase;
 	class T_Copper_HP_Slug: B_12Gauge_Slug// High damage extremely low penetration slug
 	{
-		hit = 25;
+		hit = 20;
 		indirectHit = 0;
 		indirectHitRange = 0;
 		caliber = 0.65;
@@ -90,9 +92,9 @@ class CfgAmmo
 		ACE_ballisticCoefficients[] = {0.165}; // Array of ballistic coefficients (contains one element more than the velocity boundary array)
 		ACE_ammoTempMuzzleVelocityShifts[] = {-27.20, -26.44, -23.76, -21.00, -17.54, -13.10, -7.95, -1.62, 6.24, 15.48, 27.75};//Array of muzzle velocity shifts in m / s with 11 data points from - 15 °C to 35 °C
 	};
-	class T_Tungsten_AP_Slug: B_12Gauge_Slug// Armor piercing slug
+	class T_Tungsten_AP_Slug: B_12Gauge_Slug// Armor piercing slug.....600*5.95=3570 3570/370
 	{
-		hit = 21;
+		hit = 15;
 		indirectHit = 0;
 		indirectHitRange = 0;
 		caliber = 5.95;
@@ -123,7 +125,7 @@ class CfgAmmo
 	};
 	class T_Copper_Hush_HP_Slug: B_12Gauge_Slug// Subsonic stealthy slug
 	{
-		hit = 25;
+		hit = 20;
 		indirectHit = 0;
 		indirectHitRange = 0;
 		caliber = 0.25;
@@ -143,6 +145,38 @@ class CfgAmmo
 		ACE_dragModel = 1;
 		ACE_ballisticCoefficients[] = { 0.165 };
 		ACE_ammoTempMuzzleVelocityShifts[] = { -27.20, -26.44, -23.76, -21.00, -17.54, -13.10, -7.95, -1.62, 6.24, 15.48, 27.75 };
+	};
+	class T_Flechette : rhs_ammo_12g_00buckshot
+	{
+		hit = 20; // for AI
+		simulation = shotSubmunitions;
+		simulationStep = 0.0001;
+		triggerTime = 0.0001;
+		triggerSpeedCoef[] = { 0.95,1.1 };
+		submunitionAmmo = "T_Flechette_Sub";
+		submunitionConeType[] = { "poissondisc", 30 };
+		submunitionConeAngle = 1.1;
+		submunitionConeAngleHorizontal = 1.1;
+		cartridge = "";
+		model = "\A3\weapons_f\empty";
+		rhs_cartridge = "\rhsusf\addons\rhsusf_weapons\casings\rhs_casing_12ga_buckshot";
+	};
+	class T_Flechette_Sub : rhs_ammo_12g_00buckshot_pellet
+	{
+		hit = 2.5;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		caliber = 2.75;
+		typicalSpeed = 250;
+		airFriction = -0.0006;
+		ACE_Caliber = 2;
+		ACE_bulletLength = 25.4;
+		ACE_bulletMass = 5;
+		ACE_muzzleVelocityVariationSD = 0.01;
+		ACE_dragModel = 7;
+		ACE_ballisticCoefficients[] = { 0.083 };
+		ACE_standardAtmosphere = "ASM";
+		warheadName = AP_Level_3;
 	};
 	class T_MV_40mm_HE: G_40mm_HE
 	{
@@ -328,6 +362,45 @@ class CfgMagazines
 		mass = 8;
 		picture = "\addons\UI\12GaugeIcon.paa";
 	};
+	class timey_2rnd_Flechette : 2Rnd_12Gauge_Slug
+	{
+		scope = 2;
+		scopeArsenal = 2;
+		ammo = "T_Flechette";
+		count = 2;
+		initspeed = 370;
+		displayName = "2rnd 30 Count Flechette";
+		displayNameShort = "30C Flec";
+		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		mass = 2;
+		picture = "\addons\UI\12GaugeIcon.paa";
+	}
+	class timey_5rnd_Flechette : 2Rnd_12Gauge_Slug
+	{
+		scope = 2;
+		scopeArsenal = 2;
+		ammo = "T_Flechette";
+		count = 5;
+		initspeed = 370;
+		displayName = "2rnd 30 Count Flechette";
+		displayNameShort = "30C Flec";
+		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		mass = 5;
+		picture = "\addons\UI\12GaugeIcon.paa";
+	}
+	class timey_8rnd_Flechette : 2Rnd_12Gauge_Slug
+	{ 
+		scope = 2;
+		scopeArsenal = 2;
+		ammo = "T_Flechette";
+		count = 8;
+		initspeed = 370;
+		displayName = "2rnd 30 Count Flechette";
+		displayNameShort = "30C Flec";
+		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		mass = 8;
+		picture = "\addons\UI\12GaugeIcon.paa";
+	}
 	class 1Rnd_HE_Grenade_shell;
 	class timey_1rnd_40mm_HE: 1Rnd_HE_Grenade_shell
 	{
@@ -422,19 +495,19 @@ class CfgMagazineWells
 {
 	class CBA_12g_2rnds
 	{
-	TimeyCustom[] += {"timey_2rnd_Copper_HP_Slug", "timey_2rnd_Tungsten_AP_Slug", "timey_2rnd_Copper_Hush_HP_Slug"};
+	TimeyCustom[] += {"timey_2rnd_Copper_HP_Slug", "timey_2rnd_Tungsten_AP_Slug", "timey_2rnd_Copper_Hush_HP_Slug", "timey_2rnd_Flechette"};
 	};
 	class CBA_12g_5rnds
 	{
-	TimeyCustom[] += {"timey_5rnd_Copper_HP_Slug", "timey_5rnd_Tungsten_AP_Slug", "timey_5rnd_Copper_Hush_HP_Slug"};
+	TimeyCustom[] += {"timey_5rnd_Copper_HP_Slug", "timey_5rnd_Tungsten_AP_Slug", "timey_5rnd_Copper_Hush_HP_Slug", "timey_5rnd_Flechette"};
 	};
 	class CBA_12g_8rnds
 	{
-	TimeyCustom[] += {"timey_8rnd_Copper_HP_Slug", "timey_8rnd_Tungsten_AP_Slug", "timey_8rnd_Copper_Hush_HP_Slug"};
+	TimeyCustom[] += {"timey_8rnd_Copper_HP_Slug", "timey_8rnd_Tungsten_AP_Slug", "timey_8rnd_Copper_Hush_HP_Slug", "timey_8rnd_Flechette"};
 	};
 	class HunterShotgun_01_12GA
 	{
-	TimeyCustom[] += {"timey_2rnd_Copper_HP_Slug", "timey_2rnd_Tungsten_AP_Slug", "timey_2rnd_Copper_Hush_HP_Slug"};
+	TimeyCustom[] += {"timey_2rnd_Copper_HP_Slug", "timey_2rnd_Tungsten_AP_Slug", "timey_2rnd_Copper_Hush_HP_Slug", "timey_2rnd_Flechette"};
 	};
 	class CBA_40mm_M203_6rnds
 	{
