@@ -30,13 +30,12 @@ class CfgPatches
 			"A3_Weapons_F_orange",
 			"A3_Weapons_F_EXP",
 			"A3_Weapons_F_enoch",
-			"jsrs_soundmod_complete_edition_soundfiles",
-			"jsrs_soundmod_complete_edition",
 			"a3_sounds_f",
 			"a3_weapons_f",
 			"a3_sounds_f_exp",
 			"rhsusf_sounds",
-			"rhsusf_c_weaponsounds"
+			"rhsusf_c_weaponsounds",
+			"sounds_f_mark"
 		};
 	};
 };
@@ -473,11 +472,11 @@ class CfgWeapons
 			sounds[] = { StandardSound, SilencedSound };
 			class StandardSound
 			{
-				soundsetshot[] = { "jsrs_m590_shot_soundset","jsrs_12x7mm_reverb_soundset" };
+				soundSetShot[] = { "RHSUSF_m590_Shot_SoundSet","RHSUSF_MMG1_Tail_SoundSet" };
 			};
 			class SilencedSound
 			{
-				soundsetshot[] = { "jsrs_asval_shot_soundset","jsrs_9x3mm_sd_reverb_soundset" };
+				soundSetShot[] = { "DMR04_Shot_SoundSet","DMR04_tail_SoundSet","DMR04_InteriorTail_SoundSet" };
 			};
 		};
 		class WeaponSlotsInfo : WeaponSlotsInfo
@@ -500,11 +499,11 @@ class CfgWeapons
 			sounds[] = { StandardSound, SilencedSound };
 			class StandardSound
 			{
-				soundsetshot[] = { "jsrs_m590_shot_soundset","jsrs_12x7mm_reverb_soundset" };
+				soundSetShot[] = { "RHSUSF_m590_Shot_SoundSet","RHSUSF_MMG1_Tail_SoundSet" };
 			};
 			class SilencedSound
 			{
-				soundsetshot[] = { "jsrs_asval_shot_soundset","jsrs_9x3mm_sd_reverb_soundset" };
+				soundSetShot[] = { "DMR04_Shot_SoundSet","DMR04_tail_SoundSet","DMR04_InteriorTail_SoundSet" };
 			};
 		};
 		class WeaponSlotsInfo: WeaponSlotsInfo
