@@ -241,6 +241,33 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		mineTrigger = "T_TriggerMag";
 		triggerWhenDestroyed = 1;
 	};
+	class ACE_G_M84;
+	class T_40mm_FLASH : ACE_G_M84 
+	{
+		hit = 0.5;
+		indirectHit = .05;
+		indirectHitRange = 20;
+		ace_grenades_flashbang = 1;
+		ace_grenades_flashbangBangs = 1;
+		fuseDistance = 2.5;
+		model = "\z\ace\addons\grenades\models\ACE_m84_thrown.p3d";
+		dangerRadiusHit = -1;
+		suppressionRadiusHit = 20;
+		typicalSpeed = 22;
+		cost = 40;
+		explosive = "1E-7";
+		deflecting = 15;
+		explosionTime = 1;
+		timeToLive = 20;
+		grenadeFireSound[] = {};
+		grenadeBurningSound[] = {};
+		aiAmmoUsageFlags = "64";
+		smokeColor[] = { 0,0,0,0 };
+		effectsSmoke = "ACE_M84FlashbangEffect";
+		whistleDist = 0;
+		triggerDistance = 0;
+		ExplosionEffects = "RHSUSF_flashbang_15";
+	};
 };
 class CfgMagazines
 {
@@ -490,6 +517,27 @@ class CfgMagazines
 		mass = 10;
 		picture = "\addons\UI\12GaugeIcon.paa";
 	};
+	class timey_1rnd_40mm_FLASH : 1Rnd_HE_Grenade_shell
+	{
+		initspeed = 80;
+		count = 1;
+		ammo = "T_40mm_FLASH"
+		displayName = "40mm flashbang";
+		displaynameshort = "6xFLASH";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\addons\UI\12GaugeIcon.paa";
+	}
+	class timey_6rnd_40mm_FLASH : 1Rnd_HE_Grenade_shell
+	{
+		initspeed = 80;
+		count = 6;
+		ammo = "T_40mm_FLASH"
+		displayName = "6rnd 40mm flashbang";
+		displaynameshort = "6xFLASH";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		mass = 30;
+		picture = "\addons\UI\12GaugeIcon.paa";
+	}
 };
 class CfgMagazineWells
 {
@@ -511,15 +559,15 @@ class CfgMagazineWells
 	};
 	class CBA_40mm_M203_6rnds
 	{
-	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper"};
+	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper", "timey_6rnd_40mm_FLASH"};
 	};
 	class CBA_40mm_M203
 	{
-	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET"};
+	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH"};
 	};
 	class UGL_40x36
 	{
-	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET"};
+	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH"};
 	};
 };
 class Mode_SemiAuto;
@@ -589,4 +637,9 @@ class CfgWeapons
 			};
 		};
 	};
+	class rhs_weap_m32_Base_F : Rifle_Base_F
+	{
+		magazineWell[] = {CBA_40mm_M203_6rnds, UGL_40x36, CBA_40mm_M203, CBA_40mm_EGLM};
+	};
 };
+class ACE_M84FlashbangEffect {};
