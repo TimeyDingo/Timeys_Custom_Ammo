@@ -299,6 +299,15 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		hit = 150;
 		caliber = 10;
 	};
+	class T_MV_40mm_TRAINING : T_MV_40mm_HET
+	{
+		submunitionAmmo = "T_TRAINING_sub";
+	};
+	class TrainingMine_Ammo;
+	class T_TRAINING_sub : TrainingMine_Ammo
+	{
+		mineTrigger = "T_Trigger";
+	};
 };
 class CfgMagazines
 {
@@ -465,7 +474,7 @@ class CfgMagazines
 		scope = 2;
 		scopeArsenal = 2;
 		ammo = "T_MV_40mm_HE";
-		initspeed = 115;
+		initspeed = 100;
 		displayName = "6rnd MV 40mm HE";
 		displaynameshort = "6xHE/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
@@ -478,7 +487,7 @@ class CfgMagazines
 		scope = 2;
 		scopeArsenal = 2;
 		ammo = "T_MV_40mm_HEDP";
-		initspeed = 115;
+		initspeed = 100;
 		displayName = "6rnd MV 40mm HEDP";
 		displaynameshort = "6xHEDP/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
@@ -491,7 +500,7 @@ class CfgMagazines
 		scope = 2;
 		scopeArsenal = 2;
 		ammo = "T_MV_40mm_HET"
-		initspeed = 115;
+		initspeed = 100;
 		displayName = "6rnd MV 40mm HET";
 		displaynameshort = "6xHET/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
@@ -562,6 +571,19 @@ class CfgMagazines
 		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		picture = "\addons\UI\Utility_round";
 	};
+	class timey_6rnd_40mm_TRAINING : timey_6rnd_40mm_HET
+	{
+		scope = 2;
+		scopeArsenal = 2;
+		ammo = "T_MV_40mm_TRAINING"
+		initspeed = 100;
+		displayName = "6rnd MV 40mm TRAINING";
+		displaynameshort = "6xTRAINING";
+		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		count = 6;
+		mass = 30;
+		picture = "\addons\UI\Utility_round";
+	};
 };
 class CfgMagazineWells
 {
@@ -583,7 +605,7 @@ class CfgMagazineWells
 	};
 	class CBA_40mm_M203_6rnds
 	{
-	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper", "timey_6rnd_40mm_FLASH", "timey_6rnd_40mm_FLASHMINE"};
+	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper", "timey_6rnd_40mm_FLASH", "timey_6rnd_40mm_FLASHMINE", "timey_6rnd_40mm_TRAINING"};
 	};
 	class CBA_40mm_M203
 	{
