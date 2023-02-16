@@ -12,26 +12,12 @@ class CfgPatches
 		weapons[] = {};
 		requiredAddons[] =
 		{
-			"A3_Data_F", // replace all with A3 with A3_Data_F_AoW_Loadorder
-			"A3_Data_F_Mark",
-			"A3_Weapons_F",
-			"A3_Data_F_Mark",
-			"A3_Data_F",
-			"A3Data",
-			"A3_Weapons_F_EPA",
+			"A3_Data_F_AoW_Loadorder",
 			"cba_main",
 			"rhsusf_weapons",
 			"ACE_Common",
 			"ace_csw",
 			"rhsusf_main_loadorder",
-			"A3_Weapons_F_EPA",
-			"A3_Weapons_F_tank",
-			"A3_Weapons_F_orange",
-			"A3_Weapons_F_EXP",
-			"A3_Weapons_F_enoch",
-			"a3_sounds_f",
-			"a3_weapons_f",
-			"a3_sounds_f_exp",
 			"rhsusf_sounds",
 			"rhsusf_c_weaponsounds"
 		};
