@@ -19,12 +19,11 @@ class CfgPatches
 			"A3_Data_F",
 			"A3Data",
 			"A3_Weapons_F_EPA",
-			"weapons_f_contact",
 			"cba_main",
 			"rhsusf_weapons",
 			"ACE_Common",
 			"ace_csw",
-			"rhsusf_main_loadorder",,
+			"rhsusf_main_loadorder",
 			"A3_Weapons_F_EPA",
 			"A3_Weapons_F_tank",
 			"A3_Weapons_F_orange",
@@ -34,8 +33,7 @@ class CfgPatches
 			"a3_weapons_f",
 			"a3_sounds_f_exp",
 			"rhsusf_sounds",
-			"rhsusf_c_weaponsounds",
-			"sounds_f_mark"
+			"rhsusf_c_weaponsounds"
 		};
 	};
 };
@@ -58,6 +56,14 @@ class CfgMineTriggers
 		mineTriggerRange = 1;
 		mineWireStart[] = { 0,0,0 };
 		mineWireEnd[] = { 0,1,0 };
+	};
+	class Flash_Trigger : RangeTriggerBounding
+	{
+		mineTriggerRange = 1.5;
+		mineTriggerMass = 1;
+		restrictZoneCenter[] = { 0,0,0 };
+		restrictZoneRadius = 5;
+		mineDelay = 0.01;
 	};
 };
 class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
@@ -242,22 +248,17 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		triggerWhenDestroyed = 1;
 	};
 	class ACE_G_M84;
-	class T_40mm_FLASH : ACE_G_M84 
+	class rhs_ammo_m84;
+	class T_40mm_FLASH : rhs_ammo_m84
 	{
-		hit = 0.5;
-		indirectHit = .05;
-		indirectHitRange = 20;
 		ace_grenades_flashbang = 1;
 		ace_grenades_flashbangBangs = 1;
 		fuseDistance = 2.5;
-		model = "\z\ace\addons\grenades\models\ACE_m84_thrown.p3d";
 		dangerRadiusHit = -1;
 		suppressionRadiusHit = 20;
 		typicalSpeed = 22;
-		cost = 40;
 		explosive = "1E-7";
 		deflecting = 15;
-		explosionTime = 1;
 		timeToLive = 20;
 		grenadeFireSound[] = {};
 		grenadeBurningSound[] = {};
@@ -266,7 +267,45 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		effectsSmoke = "ACE_M84FlashbangEffect";
 		whistleDist = 0;
 		triggerDistance = 0;
+		model = "\rhsusf\addons\rhsusf_weapons\grenades_thrown\m84\m84_flash";
+		hit = 0.1;
+		indirectHit = 0.1;
+		indirectHitRange = 8;
 		ExplosionEffects = "RHSUSF_flashbang_15";
+		craterEffects = "RHSUSF_flashbang_Crater";
+		explosionTime = 1.5;
+		cost = 10;
+	};
+	class T_40mm_FLASHMINE : T_40mm_TirePopperDeployer
+	{
+		typicalspeed = 70;
+		fuseDistance = 0;
+		submunitionAmmo = "T_40mm_FLASHSUB";
+		triggerDistance = 0;
+	};
+	class T_40mm_FLASHSUB : T_TirePopper
+	{
+		model = "\A3\Weapons_f\Explosives\mine_AP_bouncing";
+		mineTrigger = "Flash_Trigger";
+		triggerWhenDestroyed = 1;
+		ace_grenades_flashbang = 1;
+		ace_grenades_flashbangBangs = 1;
+		dangerRadiusHit = -1;
+		suppressionRadiusHit = 20;
+		typicalSpeed = 22;
+		explosive = "1E-7";
+		grenadeFireSound[] = {};
+		grenadeBurningSound[] = {};
+		aiAmmoUsageFlags = "64";
+		smokeColor[] = { 0,0,0,0 };
+		effectsSmoke = "ACE_M84FlashbangEffect";
+		whistleDist = 0;
+		hit = 0.1;
+		indirectHit = 0.1;
+		indirectHitRange = 8;
+		ExplosionEffects = "RHSUSF_flashbang_15";
+		craterEffects = "RHSUSF_flashbang_Crater";
+		cost = 10;
 	};
 };
 class CfgMagazines
@@ -523,10 +562,10 @@ class CfgMagazines
 		count = 1;
 		ammo = "T_40mm_FLASH"
 		displayName = "40mm flashbang";
-		displaynameshort = "6xFLASH";
+		displaynameshort = "FLASH";
 		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		picture = "\addons\UI\12GaugeIcon.paa";
-	}
+	};
 	class timey_6rnd_40mm_FLASH : 1Rnd_HE_Grenade_shell
 	{
 		initspeed = 80;
@@ -537,7 +576,27 @@ class CfgMagazines
 		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		mass = 30;
 		picture = "\addons\UI\12GaugeIcon.paa";
-	}
+	};
+	class timey_1rnd_40mm_FLASHMINE : timey_1rnd_40mm_FLASH
+	{
+		initspeed = 80;
+		count = 1;
+		ammo = "T_40mm_FLASHMINE"
+		displayName = "40mm flashbang mine";
+		displaynameshort = "FLASHMINE";
+		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\addons\UI\12GaugeIcon.paa";
+	};
+	class timey_6rnd_40mm_FLASHMINE : timey_1rnd_40mm_FLASH
+	{
+		initspeed = 80;
+		count = 6;
+		ammo = "T_40mm_FLASHMINE"
+		displayName = "6rnd 40mm flashbang mine";
+		displaynameshort = "6xFLASHMINE";
+		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\addons\UI\12GaugeIcon.paa";
+	};
 };
 class CfgMagazineWells
 {
@@ -559,15 +618,15 @@ class CfgMagazineWells
 	};
 	class CBA_40mm_M203_6rnds
 	{
-	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper", "timey_6rnd_40mm_FLASH"};
+	TimeyCustom[] += {"timey_6rnd_40mm_HE", "timey_6rnd_40mm_HEDP", "timey_6rnd_40mm_HET", "timey_6rnd_40mm_TirePopper", "timey_6rnd_40mm_FLASH", "timey_6rnd_40mm_FLASHMINE"};
 	};
 	class CBA_40mm_M203
 	{
-	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH"};
+	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH", "timey_1rnd_40mm_FLASHMINE"};
 	};
 	class UGL_40x36
 	{
-	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH"};
+	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH", "timey_1rnd_40mm_FLASHMINE"};
 	};
 };
 class Mode_SemiAuto;
