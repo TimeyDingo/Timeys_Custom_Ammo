@@ -322,7 +322,7 @@ class CfgMagazines
 		displayNameShort = "Copper HP Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 2;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\copper_slug.paa";
 	};
 	class timey_2rnd_Tungsten_AP_Slug: 2Rnd_12Gauge_Slug
 	{
@@ -335,7 +335,7 @@ class CfgMagazines
 		displayNameShort = "Tungsten AP Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 2;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\AP_slug.paa";
 	};
 	class timey_2rnd_Copper_Hush_HP_Slug: 2Rnd_12Gauge_Slug
 	{
@@ -348,7 +348,7 @@ class CfgMagazines
 		displayNameShort = "HUSH Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 2;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\subsonic_slug.paa";
 	};
 	class timey_5rnd_Copper_HP_Slug : 2Rnd_12Gauge_Slug
 	{
@@ -361,7 +361,7 @@ class CfgMagazines
 		displayNameShort = "Copper HP Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 5;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\copper_slug.paa";
 	};
 	class timey_5rnd_Tungsten_AP_Slug : 2Rnd_12Gauge_Slug
 	{
@@ -374,7 +374,7 @@ class CfgMagazines
 		displayNameShort = "Tungsten AP Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 5;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\AP_slug.paa";
 	};
 	class timey_5rnd_Copper_Hush_HP_Slug : 2Rnd_12Gauge_Slug
 	{
@@ -387,7 +387,7 @@ class CfgMagazines
 		displayNameShort = "HUSH Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 5;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\subsonic_slug.paa";
 	};
 	class timey_8rnd_Copper_HP_Slug : 2Rnd_12Gauge_Slug
 	{
@@ -400,7 +400,7 @@ class CfgMagazines
 		displayNameShort = "Copper HP Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 8;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\copper_slug.paa";
 	};
 	class timey_8rnd_Tungsten_AP_Slug : 2Rnd_12Gauge_Slug
 	{
@@ -413,7 +413,7 @@ class CfgMagazines
 		displayNameShort = "Tungsten AP Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 8;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\AP_slug.paa";
 	};
 	class timey_8rnd_Copper_Hush_HP_Slug : 2Rnd_12Gauge_Slug
 	{
@@ -426,7 +426,7 @@ class CfgMagazines
 		displayNameShort = "HUSH Slug";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 8;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\subsonic_slug.paa";
 	};
 	class timey_2rnd_Flechette : 2Rnd_12Gauge_Slug
 	{
@@ -439,7 +439,7 @@ class CfgMagazines
 		displayNameShort = "30C Flec";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 2;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\Flechette.paa";
 	}
 	class timey_5rnd_Flechette : 2Rnd_12Gauge_Slug
 	{
@@ -448,11 +448,11 @@ class CfgMagazines
 		ammo = "T_Flechette";
 		count = 5;
 		initspeed = 370;
-		displayName = "2rnd 30 Count Flechette";
+		displayName = "5rnd 30 Count Flechette";
 		displayNameShort = "30C Flec";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 5;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\Flechette.paa";
 	}
 	class timey_8rnd_Flechette : 2Rnd_12Gauge_Slug
 	{ 
@@ -461,11 +461,11 @@ class CfgMagazines
 		ammo = "T_Flechette";
 		count = 8;
 		initspeed = 370;
-		displayName = "2rnd 30 Count Flechette";
+		displayName = "8rnd 30 Count Flechette";
 		displayNameShort = "30C Flec";
 		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
 		mass = 8;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\Flechette.paa";
 	}
 	class 1Rnd_HE_Grenade_shell;
 	class timey_1rnd_40mm_HE: 1Rnd_HE_Grenade_shell
@@ -478,7 +478,7 @@ class CfgMagazines
 		displaynameshort = "HE/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 1<br />Used in: M203, M320, M79";
 		deleteIfEmpty = 0;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\HE.paa";
 	};
 	class timey_1rnd_40mm_HEDP: 1Rnd_HE_Grenade_shell
 	{
@@ -490,7 +490,7 @@ class CfgMagazines
 		displaynameshort = "HEDP/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 1<br />Used in: M203, M320, M79";
 		deleteIfEmpty = 0;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\HEDP.paa";
 	};
 	class timey_1rnd_40mm_HET: 1Rnd_HE_Grenade_shell
 	{
@@ -502,7 +502,7 @@ class CfgMagazines
 		displaynameshort = "HET/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 1<br />Used in: M203, M320, M79";
 		deleteIfEmpty = 0;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\HET.paa";
 	};
 	class timey_6rnd_40mm_HE : 1Rnd_HE_Grenade_shell
 	{
@@ -515,7 +515,7 @@ class CfgMagazines
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		count = 6;
 		mass = 30;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\HE.paa";
 	};
 	class timey_6rnd_40mm_HEDP : 1Rnd_HE_Grenade_shell
 	{
@@ -528,7 +528,7 @@ class CfgMagazines
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		count = 6;
 		mass = 30;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\HEDP.paa";
 	};
 	class timey_6rnd_40mm_HET : 1Rnd_HE_Grenade_shell
 	{
@@ -541,7 +541,7 @@ class CfgMagazines
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		count = 6;
 		mass = 30;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\HET.paa";
 	};
 	class timey_6rnd_40mm_TirePopper : 1Rnd_HE_Grenade_shell
 	{
@@ -554,7 +554,7 @@ class CfgMagazines
 		descriptionshort = "Type: Deploys a tire popper <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		count = 6;
 		mass = 10;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\Utility_round.paa";
 	};
 	class timey_1rnd_40mm_FLASH : 1Rnd_HE_Grenade_shell
 	{
@@ -564,7 +564,7 @@ class CfgMagazines
 		displayName = "40mm flashbang";
 		displaynameshort = "FLASH";
 		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\FLASH.paa";
 	};
 	class timey_6rnd_40mm_FLASH : 1Rnd_HE_Grenade_shell
 	{
@@ -575,7 +575,7 @@ class CfgMagazines
 		displaynameshort = "6xFLASH";
 		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		mass = 30;
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\FLASH.paa";
 	};
 	class timey_1rnd_40mm_FLASHMINE : timey_1rnd_40mm_FLASH
 	{
@@ -585,7 +585,7 @@ class CfgMagazines
 		displayName = "40mm flashbang mine";
 		displaynameshort = "FLASHMINE";
 		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\Utility_round";
 	};
 	class timey_6rnd_40mm_FLASHMINE : timey_1rnd_40mm_FLASH
 	{
@@ -595,7 +595,7 @@ class CfgMagazines
 		displayName = "6rnd 40mm flashbang mine";
 		displaynameshort = "6xFLASHMINE";
 		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
-		picture = "\addons\UI\12GaugeIcon.paa";
+		picture = "\addons\UI\Utility_round";
 	};
 };
 class CfgMagazineWells
