@@ -307,6 +307,12 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		craterEffects = "RHSUSF_flashbang_Crater";
 		cost = 10;
 	};
+	class rhsusf_ammo_127x99_mk211;
+	class T_SLAP : rhsusf_ammo_127x99_mk211
+	{
+		hit = 150;
+		caliber = 10;
+	};
 };
 class CfgMagazines
 {
@@ -468,48 +474,12 @@ class CfgMagazines
 		picture = "\addons\UI\Flechette.paa";
 	}
 	class 1Rnd_HE_Grenade_shell;
-	class timey_1rnd_40mm_HE: 1Rnd_HE_Grenade_shell
-	{
-		mass = 5;
-		scopeArsenal = 2;
-		ammo = "T_MV_40mm_HE";
-		initspeed = 150;
-		displayName = "MV 40mm HE";
-		displaynameshort = "HE/MV";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 1<br />Used in: M203, M320, M79";
-		deleteIfEmpty = 0;
-		picture = "\addons\UI\HE.paa";
-	};
-	class timey_1rnd_40mm_HEDP: 1Rnd_HE_Grenade_shell
-	{
-		mass = 5;
-		scopeArsenal = 2;
-		ammo = "T_MV_40mm_HEDP";
-		initspeed = 150;
-		displayName = "MV 40mm HEDP";
-		displaynameshort = "HEDP/MV";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 1<br />Used in: M203, M320, M79";
-		deleteIfEmpty = 0;
-		picture = "\addons\UI\HEDP.paa";
-	};
-	class timey_1rnd_40mm_HET: 1Rnd_HE_Grenade_shell
-	{
-		mass = 5;
-		scopeArsenal = 2;
-		ammo = "T_MV_40mm_HET";
-		initspeed = 150;
-		displayName = "MV 40mm HET";
-		displaynameshort = "HET/MV";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 1<br />Used in: M203, M320, M79";
-		deleteIfEmpty = 0;
-		picture = "\addons\UI\HET.paa";
-	};
 	class timey_6rnd_40mm_HE : 1Rnd_HE_Grenade_shell
 	{
 		scope = 2;
 		scopeArsenal = 2;
 		ammo = "T_MV_40mm_HE";
-		initspeed = 150;
+		initspeed = 115;
 		displayName = "6rnd MV 40mm HE";
 		displaynameshort = "6xHE/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
@@ -522,7 +492,7 @@ class CfgMagazines
 		scope = 2;
 		scopeArsenal = 2;
 		ammo = "T_MV_40mm_HEDP";
-		initspeed = 150;
+		initspeed = 115;
 		displayName = "6rnd MV 40mm HEDP";
 		displaynameshort = "6xHEDP/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
@@ -535,7 +505,7 @@ class CfgMagazines
 		scope = 2;
 		scopeArsenal = 2;
 		ammo = "T_MV_40mm_HET"
-		initspeed = 150;
+		initspeed = 115;
 		displayName = "6rnd MV 40mm HET";
 		displaynameshort = "6xHET/MV";
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
@@ -597,6 +567,15 @@ class CfgMagazines
 		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		picture = "\addons\UI\Utility_round";
 	};
+	class rhsusf_mag_10Rnd_STD_50BMG_mk211;
+	class timey_10rnd_SLAP : rhsusf_mag_10Rnd_STD_50BMG_mk211 //hit = 60 for the default arma round
+	{
+		ammo = "T_SLAP";
+		displayName = "10rnd M107 SLAP";
+		displaynameshort = "SLAP";
+		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\addons\UI\Utility_round";
+	};
 };
 class CfgMagazineWells
 {
@@ -622,11 +601,15 @@ class CfgMagazineWells
 	};
 	class CBA_40mm_M203
 	{
-	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH", "timey_1rnd_40mm_FLASHMINE"};
+	TimeyCustom[] += {"timey_1rnd_40mm_FLASH", "timey_1rnd_40mm_FLASHMINE"};
 	};
 	class UGL_40x36
 	{
-	TimeyCustom[] += {"timey_1rnd_40mm_HE", "timey_1rnd_40mm_HEDP", "timey_1rnd_40mm_HET", "timey_1rnd_40mm_FLASH", "timey_1rnd_40mm_FLASHMINE"};
+	TimeyCustom[] += {"timey_1rnd_40mm_FLASH", "timey_1rnd_40mm_FLASHMINE"};
+	};
+	class CBA_50BMG_M107			// M82, M107, G82
+	{
+	TimeyCustom[] += {"timey_10rnd_SLAP"};
 	};
 };
 class Mode_SemiAuto;
