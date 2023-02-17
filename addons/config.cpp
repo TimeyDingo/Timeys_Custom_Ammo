@@ -19,7 +19,8 @@ class CfgPatches
 			"ace_csw",
 			"rhsusf_main_loadorder",
 			"rhsusf_sounds",
-			"rhsusf_c_weaponsounds"
+			"rhsusf_c_weaponsounds",
+			"ace_explosives"
 		};
 	};
 };
@@ -226,7 +227,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	{
 		hit = 100;
 		indirectHit = 100;
-		indirectHitRange = 0.2;
+		indirectHitRange = 0.35;
 		directionalExplosion = 1;
 		explosionAngle = 8;
 		model = "\A3\Weapons_f\Explosives\mine_at";
@@ -307,6 +308,22 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	class T_TRAINING_sub : TrainingMine_Ammo
 	{
 		mineTrigger = "T_Trigger";
+	};
+	class ClaymoreDirectionalMine_Remote_Ammo;
+	class T_PLACE_TP : ClaymoreDirectionalMine_Remote_Ammo
+	{
+		ace_explosives_magazine = "ClaymoreDirectionalMine_Remote_Mag";
+		ace_explosives_Explosive = "ClaymoreDirectionalMine_Remote_Ammo_Scripted";
+		ace_explosives_size = 0;
+		ace_explosives_defuseObjectPosition[] = { 0,0,0.038 };
+		soundActivation[] = { "",0,0,0 };
+		soundDeactivation[] = { "",0,0,0 };
+		hit = 300;
+		indirectHit = 300;
+		indirectHitRange = 15;
+		directionalExplosion = 1;
+		explosionAngle = 30;
+		triggerWhenDestroyed = 1;
 	};
 };
 class CfgMagazines
@@ -584,6 +601,15 @@ class CfgMagazines
 		mass = 30;
 		picture = "\addons\UI\Utility_round";
 	};
+	class ClaymoreDirectionalMine_Remote_Mag;
+	class timey_PLACE_TP_MAG: ClaymoreDirectionalMine_Remote_Mag
+	{
+		picture = "\addons\UI\Utility_round";
+		displayName = "Tire popping explosive";
+		displaynameshort = "TP explosive";
+		ammo = "T_PLACE_TP"
+		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+	};
 };
 class CfgMagazineWells
 {
@@ -690,6 +716,16 @@ class CfgWeapons
 	class rhs_weap_m32_Base_F : Rifle_Base_F
 	{
 		magazineWell[] = {CBA_40mm_M203_6rnds, UGL_40x36, CBA_40mm_M203, CBA_40mm_EGLM};
+	};
+	class Default;
+	class Put : Default
+	{
+		muzzles[] += {"ace_explosives_muzzle"};
+		class PutMuzzle : Default {};
+		class ace_explosives_muzzle : PutMuzzle
+		{
+			magazines[] = { "timey_PLACE_TP_MAG" };
+		};
 	};
 };
 class ACE_M84FlashbangEffect {};
