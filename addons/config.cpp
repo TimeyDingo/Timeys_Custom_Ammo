@@ -310,7 +310,8 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		mineTrigger = "T_Trigger";
 	};
 	class ClaymoreDirectionalMine_Remote_Ammo;
-	class T_PLACE_TP : ClaymoreDirectionalMine_Remote_Ammo
+	class SLAMDirectionalMine_Wire_Ammo;
+	class T_PLACE_TP : SLAMDirectionalMine_Wire_Ammo
 	{
 		ace_explosives_magazine = "ClaymoreDirectionalMine_Remote_Mag";
 		ace_explosives_Explosive = "ClaymoreDirectionalMine_Remote_Ammo_Scripted";
@@ -318,12 +319,29 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		ace_explosives_defuseObjectPosition[] = { 0,0,0.038 };
 		soundActivation[] = { "",0,0,0 };
 		soundDeactivation[] = { "",0,0,0 };
-		hit = 300;
-		indirectHit = 300;
-		indirectHitRange = 15;
+		hit = 250;
+		indirectHit = 250;
+		indirectHitRange = 2.5;
 		directionalExplosion = 1;
-		explosionAngle = 30;
+		explosionAngle = 15;
 		triggerWhenDestroyed = 1;
+	};
+	class ACE_SLAMDirectionalMine_Command_Ammo;
+	class T_PLACE_TP_COMMAND : ACE_SLAMDirectionalMine_Command_Ammo
+	{
+		ace_explosives_magazine = "ClaymoreDirectionalMine_Remote_Mag";
+		ace_explosives_Explosive = "ClaymoreDirectionalMine_Remote_Ammo_Scripted";
+		ace_explosives_size = 0;
+		ace_explosives_defuseObjectPosition[] = { 0,0,0.038 };
+		soundActivation[] = { "",0,0,0 };
+		soundDeactivation[] = { "",0,0,0 };
+		hit = 100;
+		indirectHit = 100;
+		indirectHitRange = 10;
+		directionalExplosion = 1;
+		explosionAngle = 15;
+		triggerWhenDestroyed = 1;
+		mineTrigger = "RemoteTrigger";
 	};
 };
 class CfgMagazines
@@ -609,6 +627,21 @@ class CfgMagazines
 		displaynameshort = "TP explosive";
 		ammo = "T_PLACE_TP"
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		ace_explosives_DelayTime = 0;
+		class ACE_Triggers
+		{
+			SupportedTriggers[] = { "Command","MK16_Transmitter","IRSensor"};
+			class Command
+			{
+				FuseTime = 0;
+				ammo = "T_PLACE_TP_COMMAND";
+			};
+			class MK16_Transmitter : Command {};
+			class IRSensor
+			{
+				displayName = "IRSENSOR";
+			};
+		};
 	};
 };
 class CfgMagazineWells
