@@ -619,11 +619,12 @@ class CfgMagazines
 			{
 				FuseTime = 0;
 				ammo = "T_PLACE_TP_COMMAND";
+				displayName = "CLAYMORE mode/Command";
 			};
 			class MK16_Transmitter : Command {};
 			class IRSensor
 			{
-				displayName = "IRSENSOR";
+				displayName = "WP mode/IRSENSOR";
 			};
 		};
 	};
