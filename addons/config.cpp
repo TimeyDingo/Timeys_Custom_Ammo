@@ -326,23 +326,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		explosionAngle = 15;
 		triggerWhenDestroyed = 1;
 	};
-	class ACE_SLAMDirectionalMine_Command_Ammo;
-	class T_PLACE_TP_COMMAND : ACE_SLAMDirectionalMine_Command_Ammo
-	{
-		ace_explosives_magazine = "ClaymoreDirectionalMine_Remote_Mag";
-		ace_explosives_Explosive = "ClaymoreDirectionalMine_Remote_Ammo_Scripted";
-		ace_explosives_size = 0;
-		ace_explosives_defuseObjectPosition[] = { 0,0,0.038 };
-		soundActivation[] = { "",0,0,0 };
-		soundDeactivation[] = { "",0,0,0 };
-		hit = 100;
-		indirectHit = 100;
-		indirectHitRange = 10;
-		directionalExplosion = 1;
-		explosionAngle = 15;
-		triggerWhenDestroyed = 1;
-		mineTrigger = "RemoteTrigger";
-	};
+	class T_PLACE_TP_COMMAND : ClaymoreDirectionalMine_Remote_Ammo{};
 };
 class CfgMagazines
 {
@@ -604,7 +588,7 @@ class CfgMagazines
 		displayName = "10rnd M107 SLAP";
 		displaynameshort = "SLAP";
 		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
-		picture = "\addons\UI\Utility_round";
+		picture = "\addons\UI\SLAP.paa";
 	};
 	class timey_6rnd_40mm_TRAINING : timey_6rnd_40mm_HET
 	{
@@ -622,12 +606,12 @@ class CfgMagazines
 	class ClaymoreDirectionalMine_Remote_Mag;
 	class timey_PLACE_TP_MAG: ClaymoreDirectionalMine_Remote_Mag
 	{
-		picture = "\addons\UI\Utility_round";
 		displayName = "Tire popping explosive";
 		displaynameshort = "TP explosive";
 		ammo = "T_PLACE_TP"
 		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
 		ace_explosives_DelayTime = 0;
+		picture = "\addons\UI\SLAM.paa";
 		class ACE_Triggers
 		{
 			SupportedTriggers[] = { "Command","MK16_Transmitter","IRSensor"};
