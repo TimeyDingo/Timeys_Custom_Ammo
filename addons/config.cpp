@@ -39,8 +39,8 @@ class CfgMineTriggers
 	class T_TriggerMag : TankTriggerMagnetic
 	{
 		mineMagnetic = 1;
-		mineTriggerMass = 20;
-		mineTriggerRange = 1;
+		mineTriggerMass = 120;
+		mineTriggerRange = 0; // 1
 		mineWireStart[] = { 0,0,0 };
 		mineWireEnd[] = { 0,1,0 };
 	};
@@ -319,11 +319,11 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		ace_explosives_defuseObjectPosition[] = { 0,0,0.038 };
 		soundActivation[] = { "",0,0,0 };
 		soundDeactivation[] = { "",0,0,0 };
-		hit = 250;
-		indirectHit = 250;
-		indirectHitRange = 2.5;
+		hit = 100;
+		indirectHit = 125;
+		indirectHitRange = 0.1;
 		directionalExplosion = 1;
-		explosionAngle = 15;
+		explosionAngle = 12;
 		triggerWhenDestroyed = 1;
 	};
 	class T_PLACE_TP_COMMAND : ClaymoreDirectionalMine_Remote_Ammo{};
@@ -682,7 +682,7 @@ class CfgWeapons
 		ACE_twistDirection = 0;
 		ACE_barrelLength = 470;
 		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
-		class Single: Mode_SemiAuto
+		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
 			class StandardSound
@@ -697,7 +697,7 @@ class CfgWeapons
 		class WeaponSlotsInfo : WeaponSlotsInfo
 		{
 			mass = 5;
-			allowedSlots[] = {901,701};
+			allowedSlots[] = { 901,701 };
 			class MuzzleSlot : MuzzleSlot
 			{
 				compatibleItems[] = { "rhsusf_acc_m24_silencer_black" }; 				/// A custom made suppressor for this weapon
@@ -709,6 +709,7 @@ class CfgWeapons
 		ACE_twistDirection = 0;
 		ACE_barrelLength = 510;
 		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
+		//doesn't work too zoomed in for some reason modelOptics = "rhsusf\addons\rhsusf_weapons3\acc\scopes\RX01\rhs_reflexsight.p3d";
 		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -721,19 +722,19 @@ class CfgWeapons
 				soundSetShot[] = { "DMR04_Shot_SoundSet","DMR04_tail_SoundSet","DMR04_InteriorTail_SoundSet" };
 			};
 		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
+		class WeaponSlotsInfo : WeaponSlotsInfo
 		{
 			mass = 75;
-			allowedSlots[] = {901};
-			class MuzzleSlot: MuzzleSlot
+			allowedSlots[] = { 901 };
+			class MuzzleSlot : MuzzleSlot
 			{
-				compatibleItems[] = {"rhsusf_acc_m24_silencer_black"}; 				/// A custom made suppressor for this weapon
+				compatibleItems[] = { "rhsusf_acc_m24_silencer_black" }; 				/// A custom made suppressor for this weapon
 			};
 		};
 	};
 	class rhs_weap_m32_Base_F : Rifle_Base_F
 	{
-		magazineWell[] = {CBA_40mm_M203_6rnds, UGL_40x36, CBA_40mm_M203, CBA_40mm_EGLM};
+		magazineWell[] = { CBA_40mm_M203_6rnds, UGL_40x36, CBA_40mm_M203, CBA_40mm_EGLM };
 	};
 	class Default;
 	class Put : Default
@@ -743,6 +744,44 @@ class CfgWeapons
 		class ace_explosives_muzzle : PutMuzzle
 		{
 			magazines[] = { "timey_PLACE_TP_MAG" };
+		};
+	};
+	class rhs_weap_m4a1_carryhandle_mstock : Rifle_Base_F
+	{
+		picture = "\addons\UI\copper_slug.paa";
+		displayName = "SPAS 15";
+		model = "\rhsusf\addons\rhsusf_weapons\M4\m4_ris_carryhandle_mstock.p3d";
+		handAnim[] = { "OFP2_ManSkeleton","\rhsusf\addons\rhsusf_c_weapons\anims\rhs_hand_m4a1.rtm" };
+		rhs_grip1_change = "rhs_weap_m4a1_carryhandle_mstock_grip";
+		rhs_grip2_change = "rhs_weap_m4a1_carryhandle_mstock_grip2";
+		rhs_grip3_change = "rhs_weap_m4a1_carryhandle_mstock_grip3";
+		baseWeapon = "rhs_weap_m4a1_carryhandle_mstock";
+		magazines[] = {""};
+		magazineWell[] = { "CBA_12g_1rnd","CBA_12g_2rnds","CBA_12g_3rnds","CBA_12g_4rnds","CBA_12g_5rnds", "CBA_12g_8rnds" };
+		modes[] = { "Single" };
+		recoil = "rhs_recoil_m590";
+		reloadSound[] = { "A3\sounds_f\weapons\M320\M320_reload",0.1,1,30 };
+		reloadAction = "GestureReloadDMR04"
+		class Single : Mode_SemiAuto
+		{
+			sounds[] = { StandardSound, SilencedSound };
+			class StandardSound
+			{
+				soundSetShot[] = { "RHSUSF_m590_Shot_SoundSet","RHSUSF_MMG1_Tail_SoundSet" };
+			};
+			class SilencedSound
+			{
+				soundSetShot[] = { "DMR04_Shot_SoundSet","DMR04_tail_SoundSet","DMR04_InteriorTail_SoundSet" };
+			};
+		};
+		class WeaponSlotsInfo : WeaponSlotsInfo
+		{
+			mass = 75;
+			allowedSlots[] = { 901 };
+			class MuzzleSlot : MuzzleSlot
+			{
+				compatibleItems[] = { "rhsusf_acc_m24_silencer_black" }; 				/// A custom made suppressor for this weapon
+			};
 		};
 	};
 };
