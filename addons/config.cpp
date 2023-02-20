@@ -9,7 +9,7 @@ class CfgPatches
 		magazines[] = {};
 		ammo[] = {};
 		units[] = {};
-		weapons[] = {};
+		weapons[] = {"T_Vector_9mm"};
 		requiredAddons[] =
 		{
 			"A3_Data_F_AoW_Loadorder",
@@ -90,7 +90,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		hit = 15;
 		indirectHit = 0;
 		indirectHitRange = 0;
-		caliber = 5.95;
+		caliber = 2.95;
 		cartridge = "";
 		rhs_cartridge = "\rhsusf\addons\rhsusf_weapons\casings\rhs_casing_12ga_slug";
 		typicalSpeed = 200;
@@ -325,6 +325,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		directionalExplosion = 1;
 		explosionAngle = 12;
 		triggerWhenDestroyed = 1;
+		caliber = 2.95;
 	};
 	class T_PLACE_TP_COMMAND : ClaymoreDirectionalMine_Remote_Ammo{};
 	class rhs_ammo_46x30_FMJ;
@@ -355,7 +356,7 @@ class CfgMagazines
 		initspeed = 442;
 		displayName = "2rnd Copper HP Slug";
 		displayNameShort = "Copper HP Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "HP Slugs to cause maximum damage to unarmored targets";
 		mass = 2;
 		picture = "\addons\UI\copper_slug.paa";
 	};
@@ -368,7 +369,7 @@ class CfgMagazines
 		initspeed = 600;
 		displayName = "2rnd Tungsten AP Slug";
 		displayNameShort = "Tungsten AP Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "Tungsten penetrator sabot to penetrate deep into body armor and through cover";
 		mass = 2;
 		picture = "\addons\UI\AP_slug.paa";
 	};
@@ -381,7 +382,7 @@ class CfgMagazines
 		initspeed = 330;
 		displayName = "2rnd Copper HUSH HP Slug";
 		displayNameShort = "HUSH Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "Subsonic HP Slugs to cause maximum damage to unarmored targets";
 		mass = 2;
 		picture = "\addons\UI\subsonic_slug.paa";
 	};
@@ -394,7 +395,7 @@ class CfgMagazines
 		initspeed = 442;
 		displayName = "5rnd Copper HP Slug";
 		displayNameShort = "Copper HP Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "HP Slugs to cause maximum damage to unarmored targets";
 		mass = 5;
 		picture = "\addons\UI\copper_slug.paa";
 	};
@@ -407,7 +408,7 @@ class CfgMagazines
 		initspeed = 600;
 		displayName = "5rnd Tungsten AP Slug";
 		displayNameShort = "Tungsten AP Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "Tungsten penetrator sabot to penetrate deep into body armor and through cover";
 		mass = 5;
 		picture = "\addons\UI\AP_slug.paa";
 	};
@@ -420,7 +421,7 @@ class CfgMagazines
 		initspeed = 330;
 		displayName = "5rnd Copper HUSH HP Slug";
 		displayNameShort = "HUSH Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "Subsonic HP Slugs to cause maximum damage to unarmored targets";
 		mass = 5;
 		picture = "\addons\UI\subsonic_slug.paa";
 	};
@@ -433,7 +434,7 @@ class CfgMagazines
 		initspeed = 442;
 		displayName = "8rnd Copper HP Slug";
 		displayNameShort = "Copper HP Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "HP Slugs to cause maximum damage to unarmored targets";
 		mass = 8;
 		picture = "\addons\UI\copper_slug.paa";
 	};
@@ -446,7 +447,7 @@ class CfgMagazines
 		initspeed = 600;
 		displayName = "8rnd Tungsten AP Slug";
 		displayNameShort = "Tungsten AP Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "Tungsten penetrator sabot to penetrate deep into body armor and through cover";
 		mass = 8;
 		picture = "\addons\UI\AP_slug.paa";
 	};
@@ -459,7 +460,7 @@ class CfgMagazines
 		initspeed = 330;
 		displayName = "8rnd Copper HUSH HP Slug";
 		displayNameShort = "HUSH Slug";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "Subsonic HP Slugs to cause maximum damage to unarmored targets";
 		mass = 8;
 		picture = "\addons\UI\subsonic_slug.paa";
 	};
@@ -472,7 +473,7 @@ class CfgMagazines
 		initspeed = 370;
 		displayName = "2rnd 30 Count Flechette";
 		displayNameShort = "30C Flec";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "30 small flechettes to cause damage on low level armor of targets";
 		mass = 2;
 		picture = "\addons\UI\Flechette.paa";
 	}
@@ -485,7 +486,7 @@ class CfgMagazines
 		initspeed = 370;
 		displayName = "5rnd 30 Count Flechette";
 		displayNameShort = "30C Flec";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "30 small flechettes to cause damage on low level armor of targets";
 		mass = 5;
 		picture = "\addons\UI\Flechette.paa";
 	}
@@ -498,7 +499,7 @@ class CfgMagazines
 		initspeed = 370;
 		displayName = "8rnd 30 Count Flechette";
 		displayNameShort = "30C Flec";
-		descriptionshort = "Caliber: 12 gauge<br />Rounds: 2<br />Used in: Kozlice";
+		descriptionshort = "30 small flechettes to cause damage on low level armor of targets";
 		mass = 8;
 		picture = "\addons\UI\Flechette.paa";
 	}
@@ -511,7 +512,7 @@ class CfgMagazines
 		initspeed = 100;
 		displayName = "6rnd MV 40mm HE";
 		displaynameshort = "6xHE/MV";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Medium velocity HE explosive round with a range out to 800M";
 		count = 6;
 		mass = 30;
 		picture = "\addons\UI\HE.paa";
@@ -524,7 +525,7 @@ class CfgMagazines
 		initspeed = 100;
 		displayName = "6rnd MV 40mm HEDP";
 		displaynameshort = "6xHEDP/MV";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Medium velocity HEDP explosive round with a range out to 800M";
 		count = 6;
 		mass = 30;
 		picture = "\addons\UI\HEDP.paa";
@@ -537,7 +538,7 @@ class CfgMagazines
 		initspeed = 100;
 		displayName = "6rnd MV 40mm HET";
 		displaynameshort = "6xHET/MV";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Medium velocity HET explosive round with a range out to 800M";
 		count = 6;
 		mass = 30;
 		picture = "\addons\UI\HET.paa";
@@ -550,7 +551,7 @@ class CfgMagazines
 		initspeed = 80;
 		displayName = "6rnd 40mm T/P";
 		displaynameshort = "6xT/P";
-		descriptionshort = "Type: Deploys a tire popper <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Deploys a wheel popping explosive deep into the dirt";
 		count = 6;
 		mass = 10;
 		picture = "\addons\UI\Utility_round.paa";
@@ -562,7 +563,7 @@ class CfgMagazines
 		ammo = "T_40mm_FLASH"
 		displayName = "40mm flashbang";
 		displaynameshort = "FLASH";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Shoots a flashbang";
 		picture = "\addons\UI\FLASH.paa";
 	};
 	class timey_6rnd_40mm_FLASH : 1Rnd_HE_Grenade_shell
@@ -572,7 +573,7 @@ class CfgMagazines
 		ammo = "T_40mm_FLASH"
 		displayName = "6rnd 40mm flashbang";
 		displaynameshort = "6xFLASH";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Shoots a flashbang";
 		mass = 30;
 		picture = "\addons\UI\FLASH.paa";
 	};
@@ -583,7 +584,7 @@ class CfgMagazines
 		ammo = "T_40mm_FLASHMINE"
 		displayName = "40mm flashbang mine";
 		displaynameshort = "FLASHMINE";
-		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Deploys a flashbang mine deep into the dirt, has an extended IR sensor to detect targets at up to 2M";
 		picture = "\addons\UI\Utility_round";
 	};
 	class timey_6rnd_40mm_FLASHMINE : timey_1rnd_40mm_FLASH
@@ -593,7 +594,7 @@ class CfgMagazines
 		ammo = "T_40mm_FLASHMINE"
 		displayName = "6rnd 40mm flashbang mine";
 		displaynameshort = "6xFLASHMINE";
-		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Deploys a flashbang mine deep into the dirt, has an extended IR sensor to detect targets at up to 2M";
 		picture = "\addons\UI\Utility_round";
 	};
 	class rhsusf_mag_10Rnd_STD_50BMG_mk211;
@@ -602,7 +603,7 @@ class CfgMagazines
 		ammo = "T_SLAP";
 		displayName = "10rnd M107 SLAP";
 		displaynameshort = "SLAP";
-		descriptionshort = "Type: Deploys a flashbang mine<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Semi-explosive highly penetrating round to disable engines, or obliterate single infantry";
 		picture = "\addons\UI\SLAP.paa";
 	};
 	class timey_6rnd_40mm_TRAINING : timey_6rnd_40mm_HET
@@ -613,7 +614,7 @@ class CfgMagazines
 		initspeed = 100;
 		displayName = "6rnd MV 40mm TRAINING";
 		displaynameshort = "6xTRAINING";
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Medium velocity training round";
 		count = 6;
 		mass = 30;
 		picture = "\addons\UI\Utility_round";
@@ -624,7 +625,7 @@ class CfgMagazines
 		displayName = "Tire popping explosive";
 		displaynameshort = "TP explosive";
 		ammo = "T_PLACE_TP"
-		descriptionshort = "Type: High Explosive Grenade<br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Tire popping modification of the claymore";
 		ace_explosives_DelayTime = 0;
 		picture = "\addons\UI\SLAM.paa";
 		class ACE_Triggers
@@ -649,7 +650,7 @@ class CfgMagazines
 		scope = 2;
 		displayName = "33rnd 9MM FMJ";
 		displaynameshort = "33C 9FMJ";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Low tier armor penetrating/good damage on unarmored targets";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
 		ammo = "T_9MM_FMJ";
 		count = 33;
@@ -663,7 +664,7 @@ class CfgMagazines
 		mass = 15;
 		displayName = "50rnd 9MM FMJ";
 		displaynameshort = "50C 9FMJ";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Low tier armor penetrating/good damage on unarmored targets";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
 	};
 	class timey_33rnd_9mm_HP : timey_33rnd_9mm_FMJ
@@ -671,7 +672,7 @@ class CfgMagazines
 		scope = 2;
 		displayName = "33rnd 9MM HP";
 		displaynameshort = "33C 9HP";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Extreme damage on unarmored targets";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
 		ammo = "T_9MM_HP";
 		count = 33;
@@ -685,7 +686,7 @@ class CfgMagazines
 		mass = 15;
 		displayName = "50rnd 9MM HP";
 		displaynameshort = "50C 9HP";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Extreme damage on unarmored targets";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
 	};
 	class timey_33rnd_9mm_AP : timey_33rnd_9mm_FMJ
@@ -693,7 +694,7 @@ class CfgMagazines
 		scope = 2;
 		displayName = "33rnd 9MM AP";
 		displaynameshort = "33C 9AP";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Extreme penetrating round";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
 		ammo = "T_9MM_FMJ";
 		count = 33;
@@ -707,7 +708,7 @@ class CfgMagazines
 		mass = 15;
 		displayName = "50rnd 9MM AP";
 		displaynameshort = "50C 9AP";
-		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		descriptionshort = "Extreme penetrating round";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
 	};
 };
@@ -751,6 +752,12 @@ class CfgMagazineWells
 	};
 };
 class Mode_SemiAuto;
+class Mode_Burst;
+class Mode_FullAuto;
+class SlotInfo;
+class CowsSlot;
+class PointerSlot;
+class UnderBarrelSlot;
 class rhs_western_m24_muzzle_slot;
 class MuzzleSlot : rhs_western_m24_muzzle_slot {};
 class MuzzleSlot_762 : MuzzleSlot {};
@@ -874,7 +881,8 @@ class CfgWeapons
 		};
 	};
 	class SMG_01_Base;
-	class SMG_01_F: SMG_01_Base
+	class SMG_01_F;
+	class T_Vector_9mm : SMG_01_Base
 	{
 		scope = 2;
 		modes[] = { "Single","FullAuto" };
@@ -882,6 +890,20 @@ class CfgWeapons
 		magazines[] = { "30Rnd_9x21_Mag","30Rnd_9x21_Red_Mag","30Rnd_9x21_Yellow_Mag","30Rnd_9x21_Green_Mag" };
 		magazineWell[] = {"T_9MM_SMG"};
 		scopeArsenal = 2;
+		baseWeapon = "SMG_01_F";
+		model = "\A3\Weapons_F_beta\Smgs\SMG_01\SMG_01_F.p3d";
+		inertia = 0.3;
+		aimTransitionSpeed = 1.4;
+		dexterity = 1.7;
+		picture = "\A3\Weapons_F_beta\Smgs\SMG_01\data\UI\gear_SMG_01_X_CA.paa";
+		UiPicture = "\A3\Weapons_F\data\UI\icon_regular_CA.paa";
+		descriptionShort = "$STR_A3_CfgWeapons_SMG_011";
+		access = 2;
+		initSpeed = -1;
+		class WeaponSlotsInfo
+		{
+			mass = 40; /// some rough estimate
+		};
 	};
 };
 class ACE_M84FlashbangEffect {};
