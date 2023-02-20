@@ -327,6 +327,21 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		triggerWhenDestroyed = 1;
 	};
 	class T_PLACE_TP_COMMAND : ClaymoreDirectionalMine_Remote_Ammo{};
+	class rhs_ammo_46x30_FMJ;
+	class T_9MM_FMJ : rhs_ammo_46x30_FMJ
+	{
+		typicalSpeed = 320; // 381 m/s
+	};
+	class rhs_ammo_46x30_JHP;
+	class T_9MM_HP : rhs_ammo_46x30_JHP
+	{
+		typicalSpeed = 320; // 350 m/s
+	};
+	class rhs_ammo_46x30_AP;
+	class T_9MM_AP : rhs_ammo_46x30_AP
+	{
+		typicalSpeed = 520; // 560 m/s
+	};
 };
 class CfgMagazines
 {
@@ -628,6 +643,73 @@ class CfgMagazines
 			};
 		};
 	};
+	class 30Rnd_45ACP_Mag_SMG_01;
+	class timey_33rnd_9mm_FMJ : 30Rnd_45ACP_Mag_SMG_01
+	{
+		scope = 2;
+		displayName = "33rnd 9MM FMJ";
+		displaynameshort = "33C 9FMJ";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+		ammo = "T_9MM_FMJ";
+		count = 33;
+		mass = 10;
+		initSpeed = 381;
+		tracersEvery = 0;
+	};
+	class timey_50rnd_9mm_FMJ : timey_33rnd_9mm_FMJ
+	{
+		count = 50;
+		mass = 15;
+		displayName = "50rnd 9MM FMJ";
+		displaynameshort = "50C 9FMJ";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+	};
+	class timey_33rnd_9mm_HP : timey_33rnd_9mm_FMJ
+	{
+		scope = 2;
+		displayName = "33rnd 9MM HP";
+		displaynameshort = "33C 9HP";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+		ammo = "T_9MM_HP";
+		count = 33;
+		mass = 10;
+		initSpeed = 320;
+		tracersEvery = 0;
+	};
+	class timey_50rnd_9mm_HP : timey_33rnd_9mm_HP
+	{
+		count = 50;
+		mass = 15;
+		displayName = "50rnd 9MM HP";
+		displaynameshort = "50C 9HP";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+	};
+	class timey_33rnd_9mm_AP : timey_33rnd_9mm_FMJ
+	{
+		scope = 2;
+		displayName = "33rnd 9MM AP";
+		displaynameshort = "33C 9AP";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+		ammo = "T_9MM_FMJ";
+		count = 33;
+		mass = 10;
+		initSpeed = 560;
+		tracersEvery = 0;
+	};
+	class timey_50rnd_9mm_AP : timey_33rnd_9mm_AP
+	{
+		count = 50;
+		mass = 15;
+		displayName = "50rnd 9MM AP";
+		displaynameshort = "50C 9AP";
+		descriptionshort = "Type: Deploys a flashbang <br />Caliber: 40 mm<br />Rounds: 6<br />Used in: M32";
+		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+	};
 };
 class CfgMagazineWells
 {
@@ -662,6 +744,10 @@ class CfgMagazineWells
 	class CBA_50BMG_M107			// M82, M107, G82
 	{
 	TimeyCustom[] += {"timey_10rnd_SLAP"};
+	};
+	class T_9MM_SMG
+	{
+		TimeyCustom[] += {"timey_33rnd_9mm_FMJ", "timey_33rnd_9mm_HP", "timey_33rnd_9mm_AP", "timey_50rnd_9mm_FMJ", "timey_50rnd_9mm_HP", "timey_50rnd_9mm_AP"};
 	};
 };
 class Mode_SemiAuto;
@@ -746,7 +832,8 @@ class CfgWeapons
 			magazines[] = { "timey_PLACE_TP_MAG" };
 		};
 	};
-	class rhs_weap_m4a1_carryhandle_mstock : Rifle_Base_F
+	class rhs_weap_m4a1_carryhandle;
+	class rhs_weap_m4a1_carryhandle_mstock : rhs_weap_m4a1_carryhandle
 	{
 		picture = "\addons\UI\copper_slug.paa";
 		displayName = "SPAS 15";
@@ -762,6 +849,8 @@ class CfgWeapons
 		recoil = "rhs_recoil_m590";
 		reloadSound[] = { "A3\sounds_f\weapons\M320\M320_reload",0.1,1,30 };
 		reloadAction = "GestureReloadDMR04"
+		scope = 2;
+		scopeArsenal = 2;
 		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -774,7 +863,7 @@ class CfgWeapons
 				soundSetShot[] = { "DMR04_Shot_SoundSet","DMR04_tail_SoundSet","DMR04_InteriorTail_SoundSet" };
 			};
 		};
-		class WeaponSlotsInfo : WeaponSlotsInfo
+		class WeaponSlotsInfo
 		{
 			mass = 75;
 			allowedSlots[] = { 901 };
@@ -783,6 +872,16 @@ class CfgWeapons
 				compatibleItems[] = { "rhsusf_acc_m24_silencer_black" }; 				/// A custom made suppressor for this weapon
 			};
 		};
+	};
+	class SMG_01_Base;
+	class SMG_01_F: SMG_01_Base
+	{
+		scope = 2;
+		modes[] = { "Single","FullAuto" };
+		displayName = "Vector 9mm";
+		magazines[] = { "30Rnd_9x21_Mag","30Rnd_9x21_Red_Mag","30Rnd_9x21_Yellow_Mag","30Rnd_9x21_Green_Mag" };
+		magazineWell[] = {"T_9MM_SMG"};
+		scopeArsenal = 2;
 	};
 };
 class ACE_M84FlashbangEffect {};
