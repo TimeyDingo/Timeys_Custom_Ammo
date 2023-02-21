@@ -882,7 +882,7 @@ class CfgWeapons
 	};
 	class SMG_01_Base;
 	class SMG_01_F;
-	class T_Vector_9mm : SMG_01_Base
+	class T_Vector_9mm : SMG_01_F
 	{
 		scope = 2;
 		modes[] = { "Single","FullAuto" };
@@ -900,10 +900,6 @@ class CfgWeapons
 		descriptionShort = "$STR_A3_CfgWeapons_SMG_011";
 		access = 2;
 		initSpeed = -1;
-		class WeaponSlotsInfo
-		{
-			mass = 40; /// some rough estimate
-		};
 	};
 };
 class ACE_M84FlashbangEffect {};
