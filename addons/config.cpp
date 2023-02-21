@@ -890,7 +890,7 @@ class CfgWeapons
 		magazines[] = { "30Rnd_9x21_Mag","30Rnd_9x21_Red_Mag","30Rnd_9x21_Yellow_Mag","30Rnd_9x21_Green_Mag" };
 		magazineWell[] = {"T_9MM_SMG"};
 		scopeArsenal = 2;
-		baseWeapon = "SMG_01_F";
+		baseWeapon = "T_Vector_9mm";
 		model = "\A3\Weapons_F_beta\Smgs\SMG_01\SMG_01_F.p3d";
 		inertia = 0.3;
 		aimTransitionSpeed = 1.4;
