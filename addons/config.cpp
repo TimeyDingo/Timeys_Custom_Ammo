@@ -343,6 +343,11 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	{
 		typicalSpeed = 520; // 560 m/s
 	};
+	class T_357_FMJ : rhs_ammo_46x30_AP
+	{
+		typicalSpeed = 460; // 480m/s
+		hit = 15;
+	};
 };
 class CfgMagazines
 {
@@ -696,7 +701,7 @@ class CfgMagazines
 		displaynameshort = "33C 9AP";
 		descriptionshort = "Extreme penetrating round";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
-		ammo = "T_9MM_FMJ";
+		ammo = "T_9MM_AP";
 		count = 33;
 		mass = 10;
 		initSpeed = 560;
@@ -710,6 +715,15 @@ class CfgMagazines
 		displaynameshort = "50C 9AP";
 		descriptionshort = "Extreme penetrating round";
 		picture = "\A3\Weapons_F\Data\UI\M_30Rnd_45ACP_CA.paa";
+	};
+	class 6Rnd_45ACP_Cylinder;
+	class timey_6rnd_357_FMJ : 6Rnd_45ACP_Cylinder
+	{
+		ammo = "T_357_FMJ";
+		displayName = "6rnd .357 FMJ";
+		displaynameshort = "6C FMJ";
+		descriptionshort = "FMJ for the .357 magnum";
+		initSpeed = 480;
 	};
 };
 class CfgMagazineWells
@@ -750,6 +764,10 @@ class CfgMagazineWells
 	{
 		TimeyCustom[] += {"timey_33rnd_9mm_FMJ", "timey_33rnd_9mm_HP", "timey_33rnd_9mm_AP", "timey_50rnd_9mm_FMJ", "timey_50rnd_9mm_HP", "timey_50rnd_9mm_AP"};
 	};
+	class T_357
+	{
+		TimeyCustom[] += {"timey_6rnd_357_FMJ"};
+	};
 };
 class Mode_SemiAuto;
 class Mode_Burst;
@@ -775,6 +793,7 @@ class CfgWeapons
 		ACE_twistDirection = 0;
 		ACE_barrelLength = 470;
 		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
+		initSpeed = -1;
 		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -803,6 +822,7 @@ class CfgWeapons
 		ACE_barrelLength = 510;
 		rhs_boltActionSound[] = { "rhsusf\addons\rhsusf_c_weapons\sounds\m590_pump.ogg", 0.12, 1, 20 };
 		//doesn't work too zoomed in for some reason modelOptics = "rhsusf\addons\rhsusf_weapons3\acc\scopes\RX01\rhs_reflexsight.p3d";
+		initSpeed = -1;
 		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -839,17 +859,16 @@ class CfgWeapons
 			magazines[] = { "timey_PLACE_TP_MAG" };
 		};
 	};
-	class rhs_weap_m4a1_carryhandle;
-	class rhs_weap_m4a1_carryhandle_mstock : rhs_weap_m4a1_carryhandle
+	class rhs_weap_m4a1_carryhandle_mstock;
+	class T_Spas15 : rhs_weap_m4a1_carryhandle_mstock
 	{
-		picture = "\addons\UI\copper_slug.paa";
 		displayName = "SPAS 15";
 		model = "\rhsusf\addons\rhsusf_weapons\M4\m4_ris_carryhandle_mstock.p3d";
 		handAnim[] = { "OFP2_ManSkeleton","\rhsusf\addons\rhsusf_c_weapons\anims\rhs_hand_m4a1.rtm" };
 		rhs_grip1_change = "rhs_weap_m4a1_carryhandle_mstock_grip";
 		rhs_grip2_change = "rhs_weap_m4a1_carryhandle_mstock_grip2";
 		rhs_grip3_change = "rhs_weap_m4a1_carryhandle_mstock_grip3";
-		baseWeapon = "rhs_weap_m4a1_carryhandle_mstock";
+		baseWeapon = "T_Spas15";
 		magazines[] = {""};
 		magazineWell[] = { "CBA_12g_1rnd","CBA_12g_2rnds","CBA_12g_3rnds","CBA_12g_4rnds","CBA_12g_5rnds", "CBA_12g_8rnds" };
 		modes[] = { "Single" };
@@ -858,6 +877,7 @@ class CfgWeapons
 		reloadAction = "GestureReloadDMR04"
 		scope = 2;
 		scopeArsenal = 2;
+		initSpeed = -1;
 		class Single : Mode_SemiAuto
 		{
 			sounds[] = { StandardSound, SilencedSound };
@@ -900,6 +920,33 @@ class CfgWeapons
 		descriptionShort = "$STR_A3_CfgWeapons_SMG_011";
 		access = 2;
 		initSpeed = -1;
+	};
+	class hgun_Pistol_heavy_02_F;
+	class T_Rhino_357 : hgun_Pistol_heavy_02_F
+	{
+		scope = 2;
+		displayName = "Rhino .357 magnum";
+		descriptionShort = "";
+		magazines[] = { "" };
+		magazineWell[] = { "T_357" };
+		scopeArsenal = 2;
+		baseWeapon = "T_Rhino_357";
+		access = 2;
+		initSpeed = -1;
+		recoil = "recoil_gm6";
+	};
+	class T_Judge_12g : hgun_Pistol_heavy_02_F
+	{
+		scope = 2;
+		displayName = "Taurus Judge 12G";
+		descriptionShort = "";
+		magazines[] = { "" };
+		magazineWell[] = { "CBA_12g_5rnds" };
+		scopeArsenal = 2;
+		baseWeapon = "T_Judge_12g";
+		access = 2;
+		initSpeed = -1;
+		recoil = "recoil_gm6";
 	};
 };
 class ACE_M84FlashbangEffect {};
