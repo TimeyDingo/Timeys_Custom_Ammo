@@ -22,15 +22,7 @@ class CfgPatches
 			"rhsusf_c_weaponsounds",
 			"ace_explosives",
 			"VSM_Vests_Config",
-			"Alpine_Vests_Config",
-			"AOR2_Vests",
-			"Arid_Vests",
-			"DTS_vests",
-			"FAST_helmet",
-			"MCBlack_Vests",
-			"VSM_Bowman",
 			"VSM_Helmets",
-			"VSM_NEW_Headgear_PATCH"
 		};
 	};
 };
@@ -116,7 +108,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		ACE_standardAtmosphere = "ASM";
 		ACE_dragModel = 7;
 		ACE_ballisticCoefficients[] = {0.083};
-		ACE_ammoTempMuzzleVelocityShifts[] = {-17.20, -16.44, -13.76, -11.00, -07.54, -03.10, -0.95, 1.62, 6.24, 15.48, 27.75};
+		ACE_ammoTempMuzzleVelocityShifts[] = {-17.20, -19.44, -13.76, -11.00, -07.54, -03.10, -0.95, 1.62, 6.24, 15.48, 27.75};
 		submunitionAmmo = "T_Copper_Hush_HP_Slug";
 		submunitionDirectionType = "SubmunitionTargetDirection";
 		deleteParentWhenTriggered = 0;
@@ -988,19 +980,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1033,19 +1025,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1078,19 +1070,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1123,19 +1115,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1168,19 +1160,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1213,19 +1205,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1258,19 +1250,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1303,19 +1295,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1348,19 +1340,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1393,19 +1385,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1438,19 +1430,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1483,19 +1475,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1528,19 +1520,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.4;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.4;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.4;
 				};
 				class Body
@@ -1605,19 +1597,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1682,19 +1674,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1727,19 +1719,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1772,19 +1764,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1817,19 +1809,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1862,19 +1854,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1907,19 +1899,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1952,19 +1944,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -1997,19 +1989,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2042,19 +2034,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2087,19 +2079,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2132,19 +2124,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2177,19 +2169,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2222,19 +2214,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2291,19 +2283,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2336,19 +2328,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2381,19 +2373,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2426,19 +2418,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2471,19 +2463,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2516,19 +2508,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2561,19 +2553,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2606,19 +2598,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2651,19 +2643,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2696,19 +2688,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2741,19 +2733,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2786,19 +2778,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2831,19 +2823,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2876,19 +2868,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2921,19 +2913,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -2966,19 +2958,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3011,19 +3003,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3056,19 +3048,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3101,19 +3093,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3146,19 +3138,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3191,19 +3183,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3236,19 +3228,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3281,19 +3273,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3326,19 +3318,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3371,19 +3363,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3416,19 +3408,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3461,19 +3453,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3506,19 +3498,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3551,19 +3543,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3596,19 +3588,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3641,19 +3633,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3686,19 +3678,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3731,19 +3723,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3776,19 +3768,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3821,19 +3813,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3866,19 +3858,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3911,19 +3903,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -3956,19 +3948,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4001,19 +3993,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4046,19 +4038,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4091,19 +4083,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4136,19 +4128,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4181,19 +4173,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4226,19 +4218,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4271,19 +4263,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4316,19 +4308,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4361,19 +4353,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4406,19 +4398,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4451,19 +4443,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4496,19 +4488,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4541,19 +4533,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4586,19 +4578,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4631,19 +4623,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4676,19 +4668,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4721,19 +4713,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4766,19 +4758,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4811,19 +4803,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4856,19 +4848,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4901,19 +4893,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4946,19 +4938,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -4991,19 +4983,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5036,19 +5028,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5081,19 +5073,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5126,19 +5118,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5171,19 +5163,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5216,19 +5208,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5261,19 +5253,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5306,19 +5298,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5351,19 +5343,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5396,19 +5388,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5441,19 +5433,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5486,19 +5478,19 @@ class CfgWeapons
 				class Chest
 				{
 					HitpointName = "HitChest";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Diaphragm
 				{
 					HitpointName = "HitDiaphragm";
-					armor = 16;
+					armor = 19;
 					PassThrough = 0.3;
 				};
 				class Abdomen
 				{
 					hitpointName = "HitAbdomen";
-					armor = 16;
+					armor = 19;
 					passThrough = 0.3;
 				};
 				class Body
@@ -5820,7 +5812,7 @@ class CfgGlasses
 	class VSM_Balaclava_black_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5832,7 +5824,7 @@ class CfgGlasses
 	class VSM_Balaclava_tan_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5843,7 +5835,7 @@ class CfgGlasses
 	class VSM_Balaclava_OD_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5854,7 +5846,7 @@ class CfgGlasses
 	class VSM_Balaclava_black_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -5865,7 +5857,7 @@ class CfgGlasses
 	class VSM_Balaclava_tan_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -5876,7 +5868,7 @@ class CfgGlasses
 	class VSM_Balaclava_OD_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -5901,7 +5893,7 @@ class CfgGlasses
 	class VSM_Balaclava_black_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5915,7 +5907,7 @@ class CfgGlasses
 	class VSM_Balaclava_tan_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5928,7 +5920,7 @@ class CfgGlasses
 	class VSM_Balaclava_OD_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5941,7 +5933,7 @@ class CfgGlasses
 	class VSM_Balaclava_black_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -5954,7 +5946,7 @@ class CfgGlasses
 	class VSM_Balaclava_tan_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -5967,7 +5959,7 @@ class CfgGlasses
 	class VSM_Balaclava_OD_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -5980,7 +5972,7 @@ class CfgGlasses
 	class VSM_Balaclava2_black_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -5992,7 +5984,7 @@ class CfgGlasses
 	class VSM_Balaclava2_tan_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6003,7 +5995,7 @@ class CfgGlasses
 	class VSM_Balaclava2_OD_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6014,7 +6006,7 @@ class CfgGlasses
 	class VSM_Balaclava2_black_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6025,7 +6017,7 @@ class CfgGlasses
 	class VSM_Balaclava2_tan_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6036,7 +6028,7 @@ class CfgGlasses
 	class VSM_Balaclava2_OD_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6062,7 +6054,7 @@ class CfgGlasses
 	class VSM_Balaclava2_black_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6076,7 +6068,7 @@ class CfgGlasses
 	class VSM_Balaclava2_tan_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6089,7 +6081,7 @@ class CfgGlasses
 	class VSM_Balaclava2_OD_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6102,7 +6094,7 @@ class CfgGlasses
 	class VSM_Balaclava2_black_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6115,7 +6107,7 @@ class CfgGlasses
 	class VSM_Balaclava2_tan_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6128,7 +6120,7 @@ class CfgGlasses
 	class VSM_Balaclava2_OD_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6141,7 +6133,7 @@ class CfgGlasses
 	class VSM_Facemask_black_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6153,7 +6145,7 @@ class CfgGlasses
 	class VSM_Facemask_tan_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6164,7 +6156,7 @@ class CfgGlasses
 	class VSM_Facemask_OD_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6175,7 +6167,7 @@ class CfgGlasses
 	class VSM_Facemask_black_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6186,7 +6178,7 @@ class CfgGlasses
 	class VSM_Facemask_tan_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6197,7 +6189,7 @@ class CfgGlasses
 	class VSM_Facemask_OD_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6223,7 +6215,7 @@ class CfgGlasses
 	class VSM_Facemask_black_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6237,7 +6229,7 @@ class CfgGlasses
 	class VSM_Facemask_tan_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6250,7 +6242,7 @@ class CfgGlasses
 	class VSM_Facemask_OD_Peltor_glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6263,7 +6255,7 @@ class CfgGlasses
 	class VSM_Facemask_black_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6276,7 +6268,7 @@ class CfgGlasses
 	class VSM_Facemask_tan_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6289,7 +6281,7 @@ class CfgGlasses
 	class VSM_Facemask_OD_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6302,7 +6294,7 @@ class CfgGlasses
 	class VSM_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6338,7 +6330,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_OD_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6350,7 +6342,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_tan_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6362,7 +6354,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_OD_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6373,7 +6365,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_tan_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6394,7 +6386,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_OD_Peltor_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6406,7 +6398,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_tan_Peltor_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6418,7 +6410,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava_OD_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6429,7 +6421,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_tan_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6440,7 +6432,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_OD_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6452,7 +6444,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_tan_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6464,7 +6456,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_OD_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6475,7 +6467,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_tan_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6496,7 +6488,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_OD_Peltor_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6508,7 +6500,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_tan_Peltor_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6520,7 +6512,7 @@ class CfgGlasses
 	class VSM_Shemagh_Balaclava2_OD_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6531,7 +6523,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_tan_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6542,7 +6534,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_OD_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6554,7 +6546,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_tan_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6566,7 +6558,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_OD_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6577,7 +6569,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_tan_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6598,7 +6590,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_OD_Peltor_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6610,7 +6602,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_tan_Peltor_Glasses
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6622,7 +6614,7 @@ class CfgGlasses
 	class VSM_Shemagh_Facemask_OD_Peltor_Goggles
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6633,7 +6625,7 @@ class CfgGlasses
 	class VSM_Shemagh_glasses_tan
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6644,7 +6636,7 @@ class CfgGlasses
 	class VSM_Shemagh_glasses_OD
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
@@ -6655,7 +6647,7 @@ class CfgGlasses
 	class VSM_Shemagh_goggles_tan
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
@@ -6666,7 +6658,7 @@ class CfgGlasses
 	class VSM_Shemagh_goggles_od
 	{
 		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 16.0;
+		ACE_TintAmount = 19.0;
 		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
 		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
 		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
