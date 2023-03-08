@@ -5509,7 +5509,6 @@ class CfgWeapons
 			};
 		};
 	};
-	class ItemCore;
 	class VSM_Mich2000_MulticamTropic : ItemCore
 	{
 		ace_hearing_protection = 0.75;
