@@ -21,8 +21,16 @@ class CfgPatches
 			"rhsusf_sounds",
 			"rhsusf_c_weaponsounds",
 			"ace_explosives",
+			"VSM_Vests_Config",
 			"Alpine_Vests_Config",
-			"VSM_HELMETS"
+			"AOR2_Vests",
+			"Arid_Vests",
+			"DTS_vests",
+			"FAST_helmet",
+			"MCBlack_Vests",
+			"VSM_Bowman",
+			"VSM_Helmets",
+			"VSM_NEW_Headgear_PATCH"
 		};
 	};
 };
