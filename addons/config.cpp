@@ -23,6 +23,8 @@ class CfgPatches
 			"ace_explosives",
 			"VSM_Vests_Config",
 			"VSM_Helmets",
+			"rhsusf_c_melb",
+			"RHS_US_A2_AirImport"
 		};
 	};
 };
@@ -57,8 +59,31 @@ class CfgMineTriggers
 };
 class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 {
+
 	class B_12Gauge_Slug;
 	class BulletBase;
+	class rhs_ammo_LWIRCM : BulletBase
+	{
+		cost = 1;
+		visibleFire = 0;
+		audibleFire = 0;
+		hit = 1;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		timeToLive = 10;
+		thrustTime = 6;
+		airFriction = -0.01;
+		simulation = "shotCM";
+		weaponLockSystem = "1 + 2 + 4 + 8 + 16";
+		model = "\A3\weapons_f\empty";
+		effectsSmoke = "EmptyEffect";
+		maxControlRange = -1;
+		initTime = 0;
+		aiAmmoUsageFlags = 8;
+		soundFly[] = { "A3\sounds_f\dummysound",0.01,0.1 };
+		supersonicCrackNear[] = { "A3\sounds_f\dummysound",0,0.1,0 };
+		supersonicCrackFar[] = { "A3\sounds_f\dummysound",0,0.1,0 };
+	};
 	class G_40mm_HE;
 	class rhs_ammo_12g_00buckshot;
 	class rhs_ammo_12g_00buckshot_pellet;
@@ -727,6 +752,14 @@ class CfgMagazines
 		descriptionshort = "FMJ for the .357 magnum";
 		initSpeed = 480;
 	};
+	class CA_Magazine;
+	class rhsusf_mag_LWIRCM : CA_Magazine
+	{
+		count = 5000;
+		ammo = "rhs_ammo_LWIRCM";
+		initSpeed = 30;
+		weight = 0;
+	};
 };
 class CfgMagazineWells
 {
@@ -783,6 +816,20 @@ class MuzzleSlot : rhs_western_m24_muzzle_slot {};
 class MuzzleSlot_762 : MuzzleSlot {};
 class CfgWeapons
 {
+	class MGun;
+	class rhsusf_weap_LWIRCM : MGun
+	{
+		magazineReloadTime = 1;
+		modes[] = { "Burst1","Burst2" };
+		reloadMagazineSound[] = { "A3\sounds_f\dummysound",2,1,5 };
+		class Burst1 : Mode_Burst
+		{
+			displayName = "Missile Jammer";
+			reloadTime = 0.1;
+			burst = 5000;
+			maxRange = 1500;
+		};
+	};
 	class Rifle;
 	class Rifle_Base_F : Rifle
 	{
@@ -5807,864 +5854,37 @@ class CfgWeapons
 		ace_hearing_lowerVolume = 0;
 	};
 };
-class CfgGlasses
+class CfgVehicles
 {
-	class VSM_Balaclava_black_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Balaclava_tan_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava_OD_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava_black_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava_tan_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava_OD_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava_black_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava_tan_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava_OD_Peltor
-	{
-		ace_hearing_protection = 0.75;
-	};
-	class VSM_Balaclava_black_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-
-	};
-	class VSM_Balaclava_tan_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava_OD_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava_black_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava_tan_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava_OD_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_black_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Balaclava2_tan_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava2_OD_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava2_black_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava2_tan_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava2_OD_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Balaclava2_black_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_tan_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_OD_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_black_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-
-	};
-	class VSM_Balaclava2_tan_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_OD_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_black_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_tan_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Balaclava2_OD_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_black_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Facemask_tan_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Facemask_OD_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Facemask_black_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Facemask_tan_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Facemask_OD_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Facemask_black_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_tan_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_OD_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_black_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-
-	};
-	class VSM_Facemask_tan_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_OD_Peltor_glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_black_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_tan_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Facemask_OD_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Peltor_AOR1_glasses
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Peltor_coyote_glasses
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Peltor_m81_glasses
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Peltor_OCP_glasses
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Peltor_OD_glasses
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Balaclava_OD_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava_tan_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava_OD_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Balaclava_tan_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Balaclava_OD_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Balaclava_tan_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Balaclava_OD_Peltor_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava_tan_Peltor_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava_OD_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Balaclava2_tan_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Balaclava2_OD_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava2_tan_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava2_OD_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Balaclava2_tan_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Balaclava2_OD_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Balaclava2_tan_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Balaclava2_OD_Peltor_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava2_tan_Peltor_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Balaclava2_OD_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Facemask_tan_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Facemask_OD_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Facemask_tan_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Facemask_OD_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Facemask_tan_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_Facemask_OD_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Facemask_tan_Peltor
-	{
-		ace_hearing_protection = 0.75;
-		ace_hearing_lowerVolume = 0;
-	};
-	class VSM_Shemagh_Facemask_OD_Peltor_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Facemask_tan_Peltor_Glasses
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-
-	};
-	class VSM_Shemagh_Facemask_OD_Peltor_Goggles
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_glasses_tan
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_glasses_OD
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\Cracked.paa";
-		ACE_Resistance = 1;
-		ACE_Protection = 0;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_goggles_tan
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
-	};
-	class VSM_Shemagh_goggles_od
-	{
-		ACE_Color[] = { 0,0,0 };
-		ACE_TintAmount = 19.0;
-		ACE_Overlay = "\z\ace\addons\goggles\textures\HUD\CombatGoggles.paa";
-		ACE_OverlayDirt = "A3\Ui_f\data\igui\rsctitles\HealthTextures\dust_upper_ca.paa";
-		ACE_OverlayCracked = "\z\ace\addons\goggles\textures\HUD\CombatGogglesCracked.paa";
-		ACE_Resistance = 2;
-		ACE_Protection = 1;
-		ACE_DustPath = "\z\ace\addons\goggles\textures\fx\dust\%1.paa";
+	class Helicopter_Base_F;
+	class Helicopter_Base_H;
+	class RHS_MELB_base : Helicopter_Base_H
+	{
+		receiveRemoteTargets = true;
+		slingLoadMaxCargoMass = 4000;
+		reportRemoteTargets = true;
+		countermeasureActivationRadius = 10000;
+		LockDetectionSystem = "1 + 2 + 4 + 8 + 16";
+		incomingMissileDetectionSystem = 16;
+	};
+	class RHS_MELB_AH6M : RHS_MELB_base
+	{
+		receiveRemoteTargets = true;
+		slingLoadMaxCargoMass = 4000;
+		reportRemoteTargets = true;
+		countermeasureActivationRadius = 10000;
+		LockDetectionSystem = "1 + 2 + 4 + 8 + 16";
+		incomingMissileDetectionSystem = 16;
+		driverCanSee = "31";
+		gunnerCanSee = "31";
+	};
+	class Heli_Transport_01_base_F;
+	class RHS_UH60_Base : Heli_Transport_01_base_F
+	{
+		incomingMissileDetectionSystem = "1 + 2 + 4 + 8 + 16";
+		countermeasureActivationRadius = 10000;
+		receiveRemoteTargets = true;
+		reportRemoteTargets = true;
 	};
 };
 class ACE_M84FlashbangEffect {};
