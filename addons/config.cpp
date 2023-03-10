@@ -755,7 +755,7 @@ class CfgMagazines
 	class CA_Magazine;
 	class rhsusf_mag_LWIRCM : CA_Magazine
 	{
-		count = 5000;
+		count = 4000;
 		ammo = "rhs_ammo_LWIRCM";
 		initSpeed = 30;
 		weight = 0;
