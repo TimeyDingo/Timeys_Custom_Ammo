@@ -24,7 +24,7 @@ class CfgPatches
 			"VSM_Vests_Config",
 			"VSM_Helmets",
 			"rhsusf_c_melb",
-			"RHS_US_A2_AirImport"
+			"RHS_US_A2_AirImport",
 		};
 	};
 };
@@ -5856,6 +5856,17 @@ class CfgWeapons
 };
 class CfgVehicles
 {
+	class UAV;
+	class UAV_02_base_F : UAV
+	{
+		weapons[] = { "rhsusf_weap_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
+	};
+	class UAV_02_CAS_base_F : UAV_02_base_F
+	{
+		weapons[] = { "rhsusf_weap_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
+	};
 	class Helicopter_Base_F;
 	class Helicopter_Base_H;
 	class RHS_MELB_base : Helicopter_Base_H
