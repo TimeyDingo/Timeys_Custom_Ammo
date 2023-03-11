@@ -25,6 +25,7 @@ class CfgPatches
 			"VSM_Helmets",
 			"rhsusf_c_melb",
 			"RHS_US_A2_AirImport",
+			"USAF_MQ9"
 		};
 	};
 };
@@ -324,8 +325,8 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	class rhsusf_ammo_127x99_mk211;
 	class T_SLAP : rhsusf_ammo_127x99_mk211
 	{
-		hit = 150;
-		caliber = 10;
+		hit = 125;
+		caliber = 8;
 	};
 	class T_MV_40mm_TRAINING : T_MV_40mm_HET
 	{
@@ -633,8 +634,10 @@ class CfgMagazines
 	class timey_10rnd_SLAP : rhsusf_mag_10Rnd_STD_50BMG_mk211 //hit = 60 for the default arma round
 	{
 		ammo = "T_SLAP";
-		displayName = "10rnd M107 SLAP";
+		displayName = "5rnd M107 SLAP";
 		displaynameshort = "SLAP";
+		count = 5;
+		mass = 30;
 		descriptionshort = "Semi-explosive highly penetrating round to disable engines, or obliterate single infantry";
 		picture = "\addons\UI\SLAP.paa";
 	};
@@ -5857,15 +5860,20 @@ class CfgWeapons
 class CfgVehicles
 {
 	class UAV;
+	class USAF_MQ9 : UAV
+	{
+		weapons[] = { "rhsusf_weap_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
+	};
 	class UAV_02_base_F : UAV
 	{
 		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
 	};
 	class UAV_02_CAS_base_F : UAV_02_base_F
 	{
 		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
 	};
 	class Helicopter_Base_F;
 	class Helicopter_Base_H;
@@ -5877,6 +5885,7 @@ class CfgVehicles
 		countermeasureActivationRadius = 10000;
 		LockDetectionSystem = "1 + 2 + 4 + 8 + 16";
 		incomingMissileDetectionSystem = 16;
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
 	};
 	class RHS_MELB_AH6M : RHS_MELB_base
 	{
@@ -5888,6 +5897,7 @@ class CfgVehicles
 		incomingMissileDetectionSystem = 16;
 		driverCanSee = "31";
 		gunnerCanSee = "31";
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
 	};
 	class Heli_Transport_01_base_F;
 	class RHS_UH60_Base : Heli_Transport_01_base_F
