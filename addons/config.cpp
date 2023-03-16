@@ -25,7 +25,8 @@ class CfgPatches
 			"VSM_Helmets",
 			"rhsusf_c_melb",
 			"RHS_US_A2_AirImport",
-			"USAF_MQ9"
+			"USAF_MQ9",
+			"Luke_ECX"
 		};
 	};
 };
@@ -5906,6 +5907,12 @@ class CfgVehicles
 		countermeasureActivationRadius = 10000;
 		receiveRemoteTargets = true;
 		reportRemoteTargets = true;
+	};
+	class EC135GNlu;
+	class EC135UnarmedLu : EC135GNlu
+	{
+		weapons[] = { "rhsusf_weap_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
 	};
 };
 class ACE_M84FlashbangEffect {};
