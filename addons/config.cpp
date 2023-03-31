@@ -5858,6 +5858,9 @@ class CfgWeapons
 		ace_hearing_lowerVolume = 0;
 	};
 };
+class RCWSOptics;	// External class reference
+class Optics_Armored;	// External class reference
+class CommanderOptics;	// External class reference
 class CfgVehicles
 {
 	class UAV;
@@ -5914,5 +5917,135 @@ class CfgVehicles
 		weapons[] = { "rhsusf_weap_LWIRCM" };
 		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
 	};
+	/*extern*/ class Car;
+
+	class Car_F : Car {
+		/*extern*/ class Sounds;
+
+		class HitPoints {
+			/*extern*/ class HitBody;
+			/*extern*/ class HitEngine;
+			/*extern*/ class HitFuel;
+			/*extern*/ class HitHull;
+			/*extern*/ class HitLFWheel;
+			/*extern*/ class HitLBWheel;
+			/*extern*/ class HitLMWheel;
+			/*extern*/ class HitLF2Wheel;
+			/*extern*/ class HitRFWheel;
+			/*extern*/ class HitRBWheel;
+			/*extern*/ class HitRMWheel;
+			/*extern*/ class HitRF2Wheel;
+		};
+	};
+
+	class Wheeled_APC_F : Car_F {
+		/*extern*/ class ViewPilot;
+		/*extern*/ class ViewOptics;
+		/*extern*/ class ViewCargo;
+		/*extern*/ class EventHandlers;
+		class Sounds : Sounds {
+			/*extern*/ class Engine;
+			/*extern*/ class Movement;
+		};
+		/*extern*/ class NewTurret;
+
+		class Turrets {
+
+			class MainTurret : NewTurret {
+				/*extern*/ class ViewOptics;
+				/*extern*/ class ViewGunner;
+
+				class Turrets {
+					/*extern*/ class CommanderOptics;
+				};
+			};
+		};
+		/*extern*/ class AnimationSources;
+	};
+
+	class APC_Wheeled_01_base_F : Wheeled_APC_F {
+		/*extern*/ class AnimationSources;
+
+		class Turrets : Turrets {
+			/*extern*/ class MainTurret;
+		};
+	};
+	class B_APC_Wheeled_01_base_F : APC_Wheeled_01_base_F {};
+	class B_APC_Wheeled_01_cannon_F : B_APC_Wheeled_01_base_F
+	{
+		displayName = "LAV-25";
+		armor = 450;
+		class TransportWeapons
+		{
+			class _xx_arifle_MX_F
+			{
+				weapon = "rhs_weap_fgm148";
+				count = 2;
+			};
+		};
+		class TransportItems
+		{
+			class _xx_FirstAidKit
+			{
+				name = "ACE_salineIV";
+				count = 10;
+			};
+		};
+		class TransportMagazines
+		{
+			class _xx_30Rnd_65x39_caseless_mag
+			{
+				magazine = "rhs_fgm148_magazine_AT";
+				count = 4;
+			};
+			class _xx_100Rnd_65x39_caseless_mag
+			{
+				magazine = "ACE_30Rnd_556x45_Stanag_M995_AP_mag";
+				count = 18;
+			};
+			class _xx_HandGrenade
+			{
+				magazine = "rhsusf_200Rnd_556x45_soft_pouch_coyote";
+				count = 3;
+			};
+			class _xx_MiniGrenade
+			{
+				magazine = "rhsusf_100Rnd_762x51_m61_ap";
+				count = 3;
+			};
+			class _xx_1Rnd_HE_Grenade_shell
+			{
+				magazine = "ACE_20Rnd_762x51_M993_AP_Mag";
+				count = 6;
+			};
+			class _xx_1Rnd_Smoke_Grenade_shell
+			{
+				magazine = "rhs_mag_an_m8hc";
+				count = 8;
+			};
+			class _xx_1Rnd_SmokeGreen_Grenade_shell
+			{
+				magazine = "rhs_mag_M433_HEDP";
+				count = 8;
+			};
+		};
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				weapons[] = { "autocannon_40mm_CTWS","LMG_coax" };
+				magazines[] = { "60Rnd_40mm_GPR_Tracer_Red_shells","60Rnd_40mm_GPR_Tracer_Red_shells","60Rnd_40mm_GPR_Tracer_Red_shells","60Rnd_40mm_GPR_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red" };
+				soundServo[] = { "A3\Sounds_F\vehicles\armor\APC\noises\servo_APC_gunner",0.56234133,1,30 };
+				soundServoVertical[] = { "A3\Sounds_F\vehicles\armor\APC\noises\servo_APC_gunner_vertical",0.56234133,1,30 };
+				class CommanderOptics : CommanderOptics
+				{
+					weapons[] = { "SmokeLauncher","LMG_coax"};
+					magazines[] = { "SmokeLauncherMag","2000Rnd_65x39_belt","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red" };
+				};
+			};
+		};
+	};
 };
 class ACE_M84FlashbangEffect {};
+
+
