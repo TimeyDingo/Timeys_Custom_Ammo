@@ -26,9 +26,64 @@ class CfgPatches
 			"rhsusf_c_melb",
 			"RHS_US_A2_AirImport",
 			"USAF_MQ9",
-			"Luke_ECX"
+			"ace_advanced_fatigue",
+			"Extended_EventHandlers",
 		};
 	};
+};
+class Extended_PreStart_EventHandlers
+{
+	class ace_advanced_fatigue
+	{
+		init = "";
+	};
+};
+class Extended_PreInit_EventHandlers
+{
+	RS_Init = "RS_Init_Var = [] execVM ""addons\disablestamina.sqf""";
+	class ace_advanced_fatigue
+	{
+		init = "";
+	};
+};
+class Extended_PostInit_EventHandlers
+{
+	class ace_advanced_fatigue
+	{
+		init = "";
+	};
+};
+class Extended_DisplayLoad_EventHandlers
+{
+	class RscDisplayMission
+	{
+		ace_advanced_fatigue = "";
+	};
+};
+class SensorTemplatePassiveRadar;
+class SensorTemplateAntiRadiation;
+class SensorTemplateActiveRadar;
+class SensorTemplateIR;
+class SensorTemplateVisual;
+class SensorTemplateMan;
+class SensorTemplateLaser;
+class SensorTemplateNV;
+class SensorTemplateDataLink;
+class DefaultVehicleSystemsDisplayManagerLeft
+{
+	class components;
+};
+class DefaultVehicleSystemsDisplayManagerRight
+{
+	class components;
+};
+class VehicleSystemsTemplateLeftPilot : DefaultVehicleSystemsDisplayManagerLeft
+{
+	class components;
+};
+class VehicleSystemsTemplateRightPilot : DefaultVehicleSystemsDisplayManagerRight
+{
+	class components;
 };
 class CfgMineTriggers
 {
@@ -5867,7 +5922,7 @@ class CfgVehicles
 	class USAF_MQ9 : UAV
 	{
 		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
+		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM",};
 	};
 	class UAV_02_base_F : UAV
 	{
@@ -5879,29 +5934,147 @@ class CfgVehicles
 		weapons[] = { "rhsusf_weap_LWIRCM" };
 		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
 	};
-	class Helicopter_Base_F;
-	class Helicopter_Base_H;
+	class Helicopter;
+	class Helicopter_Base_F : Helicopter
+	{
+		class Turrets;
+		class HitPoints;
+	};
+	class Helicopter_Base_H : Helicopter_Base_F
+	{
+		class EventHandlers;
+		class Turrets : Turrets
+		{
+			class CopilotTurret;
+		};
+		class HitPoints : HitPoints
+		{
+			class HitHull;
+			class HitFuel;
+			class HitEngine;
+			class HitAvionics;
+			class HitVRotor;
+			class HitHRotor;
+			class HitGlass1;
+			class HitGlass2;
+			class HitGlass3;
+			class HitGlass4;
+			class HitGlass5;
+			class HitGlass6;
+		};
+		class CargoTurret;
+		class AnimationSources;
+		class ViewOptics;
+		class RotorLibHelicopterProperties;
+		class Components;
+	};
 	class RHS_MELB_base : Helicopter_Base_H
 	{
-		receiveRemoteTargets = true;
 		slingLoadMaxCargoMass = 4000;
-		reportRemoteTargets = true;
-		countermeasureActivationRadius = 10000;
 		LockDetectionSystem = "1 + 2 + 4 + 8 + 16";
 		incomingMissileDetectionSystem = 16;
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
+		magazines[] = { "Laserbatteries","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
+		class Components : Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					class IRSensorComponent : SensorTemplateIR
+					{
+						class AirTarget
+						{
+							minRange = 500;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = 1;
+						};
+						class GroundTarget
+						{
+							minRange = 500;
+							maxRange = 3000;
+							objectDistanceLimitCoef = 1;
+							viewDistanceLimitCoef = 1;
+						};
+						maxTrackableSpeed = 75;
+						angleRangeHorizontal = 240;
+						angleRangeVertical = 110;
+						animDirection = "commanderview";
+					};
+					class VisualSensorComponent : SensorTemplateVisual
+					{
+						class AirTarget
+						{
+							minRange = 500;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = 1;
+						};
+						class GroundTarget
+						{
+							minRange = 500;
+							maxRange = 3000;
+							objectDistanceLimitCoef = 1;
+							viewDistanceLimitCoef = 1;
+						};
+						maxTrackableSpeed = 75;
+						angleRangeHorizontal = 240;
+						angleRangeVertical = 110;
+						aimDown = 1;
+						animDirection = "commanderview";
+					};
+					class ActiveRadarSensorComponent : SensorTemplateActiveRadar
+					{
+						class AirTarget
+						{
+							minRange = 7000;
+							maxRange = 7000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget
+						{
+							minRange = 4000;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						angleRangeHorizontal = 240;
+						angleRangeVertical = 110;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
+						aimDown = 35;
+					};
+					class DataLinkSensorComponent : SensorTemplateDataLink {};
+					class PassiveRadarSensorComponent : SensorTemplatePassiveRadar {};
+					class LaserSensorComponent : SensorTemplateLaser
+					{
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 120;
+						aimDown = 30;
+					};
+					class NVSensorComponent : SensorTemplateNV
+					{
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 120;
+						aimDown = 30;
+					};
+				};
+			};
+			class VehicleSystemsDisplayManagerComponentLeft : VehicleSystemsTemplateLeftPilot {};
+			class VehicleSystemsDisplayManagerComponentRight : VehicleSystemsTemplateRightPilot {};
+		};
 	};
 	class RHS_MELB_AH6M : RHS_MELB_base
 	{
 		receiveRemoteTargets = true;
 		slingLoadMaxCargoMass = 4000;
 		reportRemoteTargets = true;
-		countermeasureActivationRadius = 10000;
 		LockDetectionSystem = "1 + 2 + 4 + 8 + 16";
 		incomingMissileDetectionSystem = 16;
-		driverCanSee = "31";
-		gunnerCanSee = "31";
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
+		magazines[] = { "Laserbatteries","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
 	};
 	class Heli_Transport_01_base_F;
 	class RHS_UH60_Base : Heli_Transport_01_base_F
@@ -5910,12 +6083,6 @@ class CfgVehicles
 		countermeasureActivationRadius = 10000;
 		receiveRemoteTargets = true;
 		reportRemoteTargets = true;
-	};
-	class EC135GNlu;
-	class EC135UnarmedLu : EC135GNlu
-	{
-		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM" };
 	};
 	/*extern*/ class Car;
 
@@ -6029,22 +6196,48 @@ class CfgVehicles
 				count = 8;
 			};
 		};
-		class Turrets: Turrets
-		{
-			class MainTurret: MainTurret
-			{
-				weapons[] = { "autocannon_40mm_CTWS","LMG_coax" };
-				magazines[] = { "60Rnd_40mm_GPR_Tracer_Red_shells","60Rnd_40mm_GPR_Tracer_Red_shells","60Rnd_40mm_GPR_Tracer_Red_shells","60Rnd_40mm_GPR_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","40Rnd_40mm_APFSDS_Tracer_Red_shells","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red" };
-				soundServo[] = { "A3\Sounds_F\vehicles\armor\APC\noises\servo_APC_gunner",0.56234133,1,30 };
-				soundServoVertical[] = { "A3\Sounds_F\vehicles\armor\APC\noises\servo_APC_gunner_vertical",0.56234133,1,30 };
-				class CommanderOptics : CommanderOptics
-				{
-					weapons[] = { "SmokeLauncher","LMG_coax"};
-					magazines[] = { "SmokeLauncherMag","2000Rnd_65x39_belt","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red" };
-				};
-			};
-		};
 	};
+	//class UAV_01_base_F;
+	//class T_FPV_Drone : UAV_01_base_F
+	//{
+	//	displayName = "BROKEN DO NOT SPAWN";
+	//	model = "\addons\fpv_drone.p3d"
+	//	altFullForce = 6000;
+	//	altNoForce = 6000;
+	//	liftForceCoef = 100.0;
+	//};
+	//class B_UAV_01_F;
+	//class T_B_Drone : T_FPV_Drone
+	//{
+	//	author = "$STR_A3_Bohemia_Interactive";
+	//	class SimpleObject
+	//	{
+	//		eden = 1;
+	//		animate[] = { {"damagehide",0},{"rotorimpacthide",0},{"tailrotorimpacthide",0},{"propeller1_rotation",0},{"propeller1_blur_rotation",0},{"propeller2_rotation",0},{"propeller2_blur_rotation",0},{"propeller3_rotation",0},{"propeller3_blur_rotation",0},{"propeller4_rotation",0},{"propeller4_blur_rotation",0},{"propeller1_hide",0},{"propeller1_blur_hide",0},{"propeller2_hide",0},{"propeller2_blur_hide",0},{"propeller3_hide",0},{"propeller3_blur_hide",0},{"propeller4_hide",0},{"propeller4_blur_hide",0},{"mainturret",0},{"maingun",-0.05} };
+	//		hide[] = { "zasleh","tail rotor blur","main rotor blur","zadni svetlo","clan","podsvit pristroju","poskozeni" };
+	//		verticalOffset = 0.15;
+	//		verticalOffsetWorld = -0.001;
+	//		init = "''";
+	//	};
+	//	editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_UAV_01_F.jpg";
+	//	_generalMacro = "B_UAV_01_F";
+	//	scope = 2;
+	//	side = 1;
+	//	faction = "BLU_F";
+	//	crew = "B_UAV_AI";
+	//	typicalCargo[] = { "B_UAV_AI" };
+	//	accuracy = 0.5;
+	//	class assembleInfo
+	//	{
+	//		primary = 1;
+		//	base = "";
+		//	assembleTo = "";
+	//		displayName = "";
+			//dissasembleTo[] = { "B_UAV_01_backpack_F" };
+		//};
+	//	hiddenSelectionsTextures[] = { "A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01_CO.paa" };
+	//	textureList[] = { "Blufor",1 };
+//	};
 };
 class ACE_M84FlashbangEffect {};
 
