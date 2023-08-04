@@ -25,9 +25,11 @@ class CfgPatches
 			"VSM_Helmets",
 			"rhsusf_c_melb",
 			"RHS_US_A2_AirImport",
-			"USAF_MQ9",
+			//"USAF_MQ9",
 			"ace_advanced_fatigue",
 			"Extended_EventHandlers",
+			"rhs_c_weapons",
+			"RHSGREF_c_A29",
 		};
 	};
 };
@@ -118,6 +120,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 {
 
 	class B_12Gauge_Slug;
+	class MissileBase;
 	class BulletBase;
 	class rhs_ammo_LWIRCM : BulletBase
 	{
@@ -431,6 +434,52 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	{
 		typicalSpeed = 460; // 480m/s
 		hit = 15;
+	};
+	class rhs_ammo_9k38;
+	class M_Titan_AA : MissileBase
+	{
+		class Components;
+	};
+	class Tim_HARM : rhs_ammo_9k38
+	{
+		cmimmunity = 1;
+		maxspeed = 800;
+		maneuvrability = 34;
+		trackoversteer = 0.98;
+		sideairfriction = 0.072;
+		trackLead = 0.65;
+
+		//Missile sensors definition
+		missileLockMaxDistance = 4800;
+		missileLockMinDistance = 200;
+		missileLockMaxSpeed = 333;
+		missileLockCone = 30;
+		missileKeepLockedCone = 70; //Need to play with it for a while
+
+		class Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					class IRSensorComponent : SensorTemplateIR
+					{
+						typeRecognitionDistance = -1; // distance how far the target type gets recognized
+						angleRangeHorizontal = 45;     // sensor azimuth coverage in degrees
+						angleRangeVertical = 45;       // sensor elevation coverage in degrees
+						groundNoiseDistanceCoef = 0.02;  // portion of sensor-target-ground distance below which the targets become invisible to the sensor
+						maxGroundNoiseDistance = 20;   // distance from the ground in meters, hard cap, above which the target will be visible even if still below groundNoiseDistanceCoef
+						minSpeedThreshold = 0;        // target speed in km/h above which the target will start to become visible
+						maxSpeedThreshold = -1;       // target speed above which the target becomes visible even if below groundNoiseDistanceCoef, linearly decreases to minSpeedThreshold
+						maxFogSeeThrough = 0.95;
+						minTrackableSpeed = 0;
+						maxTrackableSpeed = 333;
+						minTrackableATL = 20;
+						maxTrackableATL = 4500;
+					};
+				};
+			};
+		};
 	};
 };
 class CfgMagazines
@@ -819,6 +868,14 @@ class CfgMagazines
 		initSpeed = 30;
 		weight = 0;
 	};
+	class rhs_mag_9k38_rocket;
+	class Tim_HARM_Mag : rhs_mag_9k38_rocket
+	{
+		ammo = "Tim_HARM";
+		displayname = "HARM";
+		descriptionshort = "Anti-jam missile";
+		picture = "\rhsafrf\addons\rhs_weapons\icons\m_igla_ca.paa";
+	};
 };
 class CfgMagazineWells
 {
@@ -1055,6 +1112,11 @@ class CfgWeapons
 		access = 2;
 		initSpeed = -1;
 		recoil = "recoil_gm6";
+	};
+	class rhs_weap_strela;
+	class rhs_weap_igla : rhs_weap_strela
+	{
+		magazines[] = { "rhs_mag_9k38_rocket","Tim_HARM_Mag"};
 	};
 	// VSM VSM VSM VSM I HATE YOU VSM VSM VSM
 	class ItemCore;
@@ -5918,22 +5980,22 @@ class Optics_Armored;	// External class reference
 class CommanderOptics;	// External class reference
 class CfgVehicles
 {
-	class UAV;
-	class USAF_MQ9 : UAV
-	{
-		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM",};
-	};
-	class UAV_02_base_F : UAV
-	{
-		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
-	};
-	class UAV_02_CAS_base_F : UAV_02_base_F
-	{
-		weapons[] = { "rhsusf_weap_LWIRCM" };
-		magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
-	};
+	//class UAV;
+	//class USAF_MQ9 : UAV
+	//{
+	//	weapons[] = { "rhsusf_weap_LWIRCM" };
+	//	magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM",};
+	//};
+	//class UAV_02_base_F : UAV
+	//{
+	//	weapons[] = { "rhsusf_weap_LWIRCM" };
+	//	magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
+	//};
+	//class UAV_02_CAS_base_F : UAV_02_base_F
+//	{
+	//	weapons[] = { "rhsusf_weap_LWIRCM" };
+	//	magazines[] = { "rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM","rhsusf_mag_LWIRCM"};
+	//};
 	class Helicopter;
 	class Helicopter_Base_F : Helicopter
 	{
@@ -6197,47 +6259,205 @@ class CfgVehicles
 			};
 		};
 	};
-	//class UAV_01_base_F;
-	//class T_FPV_Drone : UAV_01_base_F
-	//{
-	//	displayName = "BROKEN DO NOT SPAWN";
-	//	model = "\addons\fpv_drone.p3d"
-	//	altFullForce = 6000;
-	//	altNoForce = 6000;
-	//	liftForceCoef = 100.0;
-	//};
-	//class B_UAV_01_F;
-	//class T_B_Drone : T_FPV_Drone
-	//{
-	//	author = "$STR_A3_Bohemia_Interactive";
-	//	class SimpleObject
-	//	{
-	//		eden = 1;
-	//		animate[] = { {"damagehide",0},{"rotorimpacthide",0},{"tailrotorimpacthide",0},{"propeller1_rotation",0},{"propeller1_blur_rotation",0},{"propeller2_rotation",0},{"propeller2_blur_rotation",0},{"propeller3_rotation",0},{"propeller3_blur_rotation",0},{"propeller4_rotation",0},{"propeller4_blur_rotation",0},{"propeller1_hide",0},{"propeller1_blur_hide",0},{"propeller2_hide",0},{"propeller2_blur_hide",0},{"propeller3_hide",0},{"propeller3_blur_hide",0},{"propeller4_hide",0},{"propeller4_blur_hide",0},{"mainturret",0},{"maingun",-0.05} };
-	//		hide[] = { "zasleh","tail rotor blur","main rotor blur","zadni svetlo","clan","podsvit pristroju","poskozeni" };
-	//		verticalOffset = 0.15;
-	//		verticalOffsetWorld = -0.001;
-	//		init = "''";
-	//	};
-	//	editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_UAV_01_F.jpg";
-	//	_generalMacro = "B_UAV_01_F";
-	//	scope = 2;
-	//	side = 1;
-	//	faction = "BLU_F";
-	//	crew = "B_UAV_AI";
-	//	typicalCargo[] = { "B_UAV_AI" };
-	//	accuracy = 0.5;
-	//	class assembleInfo
-	//	{
-	//		primary = 1;
-		//	base = "";
-		//	assembleTo = "";
-	//		displayName = "";
-			//dissasembleTo[] = { "B_UAV_01_backpack_F" };
-		//};
-	//	hiddenSelectionsTextures[] = { "A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01_CO.paa" };
-	//	textureList[] = { "Blufor",1 };
-//	};
+	class Air;
+	class Plane : Air
+	{
+		class NewTurret;
+		class ViewPilot;
+		class HitPoints
+		{
+			class HitHull;
+		};
+	};
+	class Plane_Base_F : Plane
+	{
+		class AnimationSources;
+		class HitPoints : HitPoints
+		{
+			class HitHull;
+		};
+		class Components;
+		class Eventhandlers;
+	};
+	class Plane_Fighter_03_base_F : Plane_Base_F {};
+	class RHSGREF_A29_Base : Plane_Fighter_03_base_F {};
+	class RHSGREF_A29B_HIDF : RHSGREF_A29_Base
+	{
+		class Components : Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					class IRSensorComponent : SensorTemplateIR
+					{
+						class AirTarget
+						{
+							minRange = 500;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = 1;
+						};
+						class GroundTarget
+						{
+							minRange = 500;
+							maxRange = 3000;
+							objectDistanceLimitCoef = 1;
+							viewDistanceLimitCoef = 1;
+						};
+						maxTrackableSpeed = 75;
+						angleRangeHorizontal = 240;
+						angleRangeVertical = 110;
+						animDirection = "TGPTilt";
+					};
+					class VisualSensorComponent : SensorTemplateVisual
+					{
+						class AirTarget
+						{
+							minRange = 500;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = 1;
+						};
+						class GroundTarget
+						{
+							minRange = 500;
+							maxRange = 3000;
+							objectDistanceLimitCoef = 1;
+							viewDistanceLimitCoef = 1;
+						};
+						maxTrackableSpeed = 75;
+						angleRangeHorizontal = 240;
+						angleRangeVertical = 110;
+						aimDown = 1;
+						animDirection = "TGPTilt";
+					};
+					class ActiveRadarSensorComponent : SensorTemplateActiveRadar
+					{
+						class AirTarget
+						{
+							minRange = 7000;
+							maxRange = 7000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget
+						{
+							minRange = 4000;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						angleRangeHorizontal = 240;
+						angleRangeVertical = 110;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
+						aimDown = 35;
+					};
+					class DataLinkSensorComponent : SensorTemplateDataLink {};
+					class PassiveRadarSensorComponent : SensorTemplatePassiveRadar {};
+					class LaserSensorComponent : SensorTemplateLaser
+					{
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 120;
+						aimDown = 30;
+					};
+					class NVSensorComponent : SensorTemplateNV
+					{
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 120;
+						aimDown = 30;
+					};
+				};
+			};
+			class VehicleSystemsDisplayManagerComponentLeft : VehicleSystemsTemplateLeftPilot {};
+			class VehicleSystemsDisplayManagerComponentRight : VehicleSystemsTemplateRightPilot {};
+			class TransportPylonsComponent
+			{
+				UIPicture = "\rhsgref\addons\rhsgref_a29\ui\RHS_A29_EDEN_CA.paa";
+				class pylons
+				{
+					class pylons1
+					{
+						hardpoints[] = { "RHS_HP_FFAR_USAF","RHS_HP_Hydra_USAF","RHS_HP_LGB_500","RHS_HP_HELLFIRE_PLANE","RHS_HP_HELLFIRE_PLANE_RACK","O_MISSILE_PYLON" };
+						attachment = "rhs_mag_M151_7_USAF_LAU131";
+						priority = 1;
+						maxweight = 150;
+						UIposition[] = { 0.28,0.41 };
+						hitpoint = "HitPylon1";
+					};
+					class pylons2
+					{
+						hardpoints[] = { "RHS_HP_FFAR_USAF","RHS_HP_Hydra_USAF","RHS_HP_LGB_500","O_MISSILE_PYLON" };
+						attachment = "rhs_mag_gbu12";
+						priority = 2;
+						maxweight = 250;
+						UIposition[] = { 0.28,0.35 };
+						hitpoint = "HitPylon1";
+					};
+					class pylons3
+					{
+						hardpoints[] = { "RHS_HP_BOMB_500","RHS_HP_BOMB_1000" };
+						attachment = "rhs_mag_mk82";
+						priority = 3;
+						maxweight = 500;
+						UIposition[] = { 0.31,0.28 };
+						hitpoint = "HitPylon3";
+					};
+					class pylons4 : pylons2
+					{
+						UIposition[] = { 0.28,0.21 };
+						mirroredMissilePos = 2;
+						hitpoint = "HitPylon4";
+					};
+					class pylons5 : pylons1
+					{
+						UIposition[] = { 0.28,0.15 };
+						mirroredMissilePos = 1;
+						hitpoint = "HitPylon5";
+					};
+					class cmDispenser
+					{
+						hardpoints[] = { "RHSUSF_cm_ANALE40_x2" };
+						priority = 1;
+						attachment = "rhsusf_ANALE40_CMFlare_Magazine_x2";
+						maxweight = 800;
+						UIposition[] = { 0.625,0.275 };
+					};
+				};
+				class Presets
+				{
+					class CAS
+					{
+						attachment[] = { "rhs_mag_M151_7_USAF_LAU131","rhs_mag_gbu12","rhs_mag_mk82","rhs_mag_gbu12","rhs_mag_M151_7_USAF_LAU131","rhsusf_ANALE40_CMFlare_Magazine_x2" };
+						displayname = "Close Air Support";
+					};
+					class PrecisionStrike
+					{
+						attachment[] = { "rhs_mag_DAGR_8_plane","rhs_mag_gbu12","rhs_mag_mk82","rhs_mag_gbu12","rhs_mag_DAGR_8_plane","rhsusf_ANALE40_CMFlare_Magazine_x2" };
+						displayname = "Precision Strike";
+					};
+					class AntiTank
+					{
+						attachment[] = { "rhs_mag_AGM114K_2_plane","rhs_mag_gbu12","rhs_mag_cbu87","rhs_mag_gbu12","rhs_mag_AGM114K_2_plane","rhsusf_ANALE40_CMFlare_Magazine_x2" };
+						displayname = "Anti Tank";
+					};
+					class Cluster
+					{
+						attachment[] = { "rhs_mag_M151_7_USAF_LAU131","rhs_mag_cbu87","rhs_mag_cbu100","rhs_mag_cbu87","rhs_mag_M151_7_USAF_LAU131","rhsusf_ANALE40_CMFlare_Magazine_x2" };
+						displayname = "Cluster";
+					};
+					class DumbBomb
+					{
+						attachment[] = { "rhs_mag_M151_7_USAF_LAU131","rhs_mag_mk82","rhs_mag_mk82","rhs_mag_mk82","rhs_mag_M151_7_USAF_LAU131","rhsusf_ANALE40_CMFlare_Magazine_x2" };
+						displayname = "Bomb";
+					};
+				};
+			};
+		};
+	};
 };
 class ACE_M84FlashbangEffect {};
 
