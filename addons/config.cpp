@@ -876,6 +876,16 @@ class CfgMagazines
 		descriptionshort = "Anti-jam missile";
 		picture = "\rhsafrf\addons\rhs_weapons\icons\m_igla_ca.paa";
 	};
+	class HandGrenade;
+	class rhs_mag_m18_yellow;
+	class rhssaf_mag_brd_m83_yellow:rhs_mag_m18_yellow
+	{
+		displayNameShort = "Yellow Smoke";
+		descriptionshort = "Type: Smoke Grenade - Yellow<br />Rounds: 1<br />Used in: Hand";
+		picture = "\rhsusf\addons\rhsusf_weapons\icons\g_m18_yellow_ca.paa";
+		model = "\rhsusf\addons\rhsusf_weapons\grenades\m18\m18_smoke_yellow";
+		scope = 2;
+	};
 };
 class CfgMagazineWells
 {
