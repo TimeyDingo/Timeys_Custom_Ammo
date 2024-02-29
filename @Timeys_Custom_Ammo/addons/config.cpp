@@ -9,7 +9,7 @@ class CfgPatches
 		magazines[] = {};
 		ammo[] = {};
 		units[] = {};
-		weapons[] = {"T_Vector_9mm"};
+		weapons[] = {"T_Vector_9mm", "T_NGSW"};
 		requiredAddons[] =
 		{
 			"A3_Data_F_AoW_Loadorder",
@@ -86,6 +86,14 @@ class VehicleSystemsTemplateLeftPilot : DefaultVehicleSystemsDisplayManagerLeft
 class VehicleSystemsTemplateRightPilot : DefaultVehicleSystemsDisplayManagerRight
 {
 	class components;
+};
+class asdg_OpticRail;
+class asdg_OpticRail1913: asdg_OpticRail
+{
+	class compatibleItems
+	{
+		T_XM157 = 1;
+	};
 };
 class CfgMineTriggers
 {
@@ -170,7 +178,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		ACE_standardAtmosphere = "ASM"; // "ASM" or "ICAO"
 		ACE_dragModel = 1; // Number that specifies the drag model [1, 2, 5, 6, 7, 8] https://www.thefirearmblog.com/blog/2016/05/13/ballistics-101-ballistic-coefficient/
 		ACE_ballisticCoefficients[] = {0.165}; // Array of ballistic coefficients (contains one element more than the velocity boundary array)
-		ACE_ammoTempMuzzleVelocityShifts[] = {-27.20, -26.44, -23.76, -21.00, -17.54, -13.10, -7.95, -1.62, 6.24, 15.48, 27.75};//Array of muzzle velocity shifts in m / s with 11 data points from - 15 °C to 35 °C
+		ACE_ammoTempMuzzleVelocityShifts[] = {-27.20, -26.44, -23.76, -21.00, -17.54, -13.10, -7.95, -1.62, 6.24, 15.48, 27.75};//Array of muzzle velocity shifts in m / s with 11 data points from - 15 ï¿½C to 35 ï¿½C
 	};
 	class T_Tungsten_AP_Slug: B_12Gauge_Slug// Armor piercing slug.....600*5.95=3570 3570/370
 	{
@@ -416,6 +424,16 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	};
 	class T_PLACE_TP_COMMAND : ClaymoreDirectionalMine_Remote_Ammo{};
 	class rhs_ammo_46x30_FMJ;
+	class rhs_ammo_762x51_M80_Ball;
+	class rhs_ammo_762x51_M61_AP;
+	class T_68_AP : rhs_ammo_762x51_M61_AP
+	{
+		typicalSpeed = 950;
+	};
+	class T_68_HP : rhs_ammo_762x51_M80_Ball
+	{
+		typicalSpeed = 800;
+	};
 	class T_9MM_FMJ : rhs_ammo_46x30_FMJ
 	{
 		typicalSpeed = 320; // 381 m/s
@@ -485,6 +503,7 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 class CfgMagazines
 {
 	class 2Rnd_12Gauge_Slug;
+	class rhs_mag_20Rnd_SCAR_762x51_m80_ball;
 	class timey_2rnd_Copper_HP_Slug: 2Rnd_12Gauge_Slug
 	{
 		scope = 2;
@@ -910,6 +929,34 @@ class CfgMagazines
 		model = "\rhsusf\addons\rhsusf_weapons\grenades\m18\m18_smoke_yellow";
 		scope = 2;
 	};
+	class timey_20rnd_68mm_AP : rhs_mag_20Rnd_SCAR_762x51_m80_ball
+	{
+		displayName = "20rnd 6.8 AP";
+		displaynameshort = "20C AP";
+		descriptionshort = "AP High Presssure for the XM7";
+		count = 20;
+		ammo = "T_68_AP";
+		mass = 16.24;
+		initSpeed = 950;
+		scope = 2;
+		scopeArsenal = 2;
+		access = 2;
+		modelSpecial = "a3\Weapons_F\MagazineProxies\mag_65x39c_mx_30rnd.p3d";
+	};
+	class timey_20rnd_68mm_HP : rhs_mag_20Rnd_SCAR_762x51_m80_ball
+	{
+		displayName = "20rnd 6.8 HP";
+		displaynameshort = "20C HP";
+		descriptionshort = "HP Low Pressure Ammo for the XM7";
+		count = 20;
+		ammo = "T_68_HP";
+		mass = 16.24;
+		initSpeed = 800;
+		scope = 2;
+		scopeArsenal = 2;
+		access = 2;
+		modelSpecial = "a3\Weapons_F\MagazineProxies\mag_65x39c_mx_30rnd.p3d";
+	};
 };
 class CfgMagazineWells
 {
@@ -952,6 +999,10 @@ class CfgMagazineWells
 	class T_357
 	{
 		TimeyCustom[] += {"timey_6rnd_357_FMJ"};
+	};
+	class T_68MM
+	{
+		TimeyCustom[] += {"timey_20rnd_68mm_HP", "timey_20rnd_68mm_AP"};
 	};
 };
 class Mode_SemiAuto;
@@ -1099,6 +1150,52 @@ class CfgWeapons
 			};
 		};
 	};
+	class arifle_MX_F;
+	class CowsSlot_Rail;
+	class T_NGSW : arifle_MX_F
+	{
+		displayName = "XM7";
+		magazines[] = {""};
+		magazineWell[] = {"T_68MM"};
+		modes[] = { "Single","FullAuto" };
+		recoil = "recoil_dmr_03";
+		descriptionShort = "$STR_A3_CfgWeapons_SMG_011";
+		scope = 2;
+		scopeArsenal = 2;
+		access = 2;
+		baseWeapon = "T_NGSW";
+		model = "\A3\Weapons_F\Rifles\MX\MX_F.p3d";
+		picture = "\A3\weapons_F\Rifles\MX\data\UI\gear_mx_rifle_X_CA.paa";
+		UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
+		handAnim[] = {"OFP2_ManSkeleton","\A3\Weapons_F\Rifles\MX\data\Anim\MX_afg.rtm"};
+		inertia = 0.5;
+		aimTransitionSpeed = 1;
+		dexterity = 1.5;
+	};
+	class arifle_MX_GL_F;
+	class UGL_F;
+	class T_NGSW_GL : arifle_MX_GL_F
+	{
+		displayName = "XM7 M320";
+		magazines[] = {""};
+		magazineWell[] = {"T_68MM"};
+		modes[] = { "Single","FullAuto" };
+		recoil = "recoil_dmr_03";
+		descriptionShort = "$STR_A3_CfgWeapons_SMG_011";
+		scope = 2;
+		scopeArsenal = 2;
+		access = 2;
+		baseWeapon = "T_NGSW_GL";
+		inertia = 0.5;
+		aimTransitionSpeed = 1;
+		dexterity = 1.5;
+		model = "\A3\Weapons_F\Rifles\MX\MX_GL_F.p3d";
+		picture = "\A3\weapons_F\Rifles\MX\data\UI\gear_mx_rifle_gl_X_CA.paa";
+		UiPicture = "\A3\Weapons_F\Data\UI\icon_gl_CA.paa";
+		weaponInfoType = "RscWeaponZeroing";
+		handAnim[] = {"OFP2_ManSkeleton","\A3\Weapons_F\Rifles\MX\data\Anim\MX_gl.rtm"};
+		muzzles[] = {"this","GL_3GL_F"};
+	};
 	class SMG_01_Base;
 	class SMG_01_F;
 	class T_Vector_9mm : SMG_01_F
@@ -1156,6 +1253,73 @@ class CfgWeapons
 	class ItemCore;
 	class UniformItem;
 	class VestItem;
+	class InventoryOpticsItem_Base_F;
+	class optic_Nightstalker;
+	class T_XM157: optic_Nightstalker //todo Can't mount on any rails for some reason?
+	{
+		displayName = "XM157";
+		descriptionShort = "NGSW FCS";
+		model = "\A3\weapons_f\acc\acco_Nightstalker_F.p3d";
+		picture = "\a3\Weapons_F\acc\Data\UI\icon_optic_Nightstalker_ca.paa";
+		scope = 2;
+        class CBA_ScriptedOptic 
+		{
+            bodyTexture = "\z\ace\addons\xm157\data\ace_vector_body_co.paa";
+            bodyTextureSize = 1;
+            hideMagnification = 1;
+            disableTilt = 0;
+        };
+		ACE_ScopeHeightAboveRail = 6;
+		discretedistance[] = {100,200,300,400,500,600,700,800,900,1000};
+		weaponInfoType = "ace_xm157_info";
+		class ItemInfo: InventoryOpticsItem_Base_F
+		{
+			mass = 10;
+			scope = 2;
+			optics = 1;
+            modelOptics = "\x\cba\addons\optics\cba_optic_big_100.p3d";
+            class OpticsModes 
+			{
+                class optic 
+				{
+                    opticsID=1;
+                    useModelOptics=1;
+                    opticsPPEffects[]={ "OpticsCHAbera1", "OpticsBlur1" };
+                    opticsZoomMin = "8 call (uiNamespace getVariable 'cba_optics_fnc_setOpticMagnificationHelper')";
+                    opticsZoomMax = "1 call (uiNamespace getVariable 'cba_optics_fnc_setOpticMagnificationHelper')";
+                    opticsZoomInit = "1 call (uiNamespace getVariable 'cba_optics_fnc_setOpticMagnificationHelper')";
+                    discreteDistance[] = {100};
+                    discreteDistanceInitIndex = 0;
+                    distanceZoomMin=100;
+                    distanceZoomMax=100;
+                    memoryPointCamera="opticView";
+                    visionMode[] = {"Normal"};
+                    opticsFlare=1;
+                    opticsDisablePeripherialVision=1;
+                    cameraDir="";
+                };
+				class Iron
+				{
+					cameraDir = "";
+					discreteDistance[] = {200};
+					discreteDistanceInitIndex = 0;
+					distanceZoomMax = 1000;
+					distanceZoomMin = 100;
+					memoryPointCamera = "eye";
+					opticsDisablePeripherialVision = 0;
+					opticsFlare = 0;
+					opticsID = 2;
+					opticsPPEffects[] = {"",""};
+					opticsZoomInit = 0.75;
+					opticsZoomMax = 1.25;
+					opticsZoomMin = 0.25;
+					thermalMode[] = {5,6};
+					useModelOptics = 0;
+					visionMode[] = {};
+				};
+            };
+        };
+    };
 	class Vest_Camo_Base : ItemCore
 	{
 		class ItemInfo;
