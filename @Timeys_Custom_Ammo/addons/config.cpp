@@ -458,6 +458,19 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 	{
 		class Components;
 	};
+	class T_Zeus: rhs_ammo_762x51_M61_AP
+	{
+		hit = 155;
+		caliber = 100;
+		rhs_cartridge = "\rhsusf\addons\rhsusf_weapons\casings\rhs_casing_12ga_slug";
+		typicalSpeed = 5000;
+		maxSpeed = 5000;
+		ACE_ballisticCoefficients[]={0.361};
+		ACE_muzzleVelocities[] = {5000};
+		ACE_bulletMass=100;
+		ACE_dragModel=7;
+		ACE_bulletLength = 100;
+	};
 	class Tim_HARM : rhs_ammo_9k38
 	{
 		cmimmunity = 1;
@@ -957,6 +970,20 @@ class CfgMagazines
 		access = 2;
 		modelSpecial = "a3\Weapons_F\MagazineProxies\mag_65x39c_mx_30rnd.p3d";
 	};
+	class timey_20rnd_68mm_ZEUS : rhs_mag_20Rnd_SCAR_762x51_m80_ball
+	{
+		displayName = "ZEUS 5C";
+		displaynameshort = "ZEUS 5C";
+		descriptionshort = "HP Low Pressure Ammo for the XM7";
+		count = 5;
+		ammo = "T_Zeus";
+		mass = 16.24;
+		initSpeed = 5000;
+		scope = 2;
+		scopeArsenal = 2;
+		access = 2;
+		modelSpecial = "a3\Weapons_F\MagazineProxies\mag_65x39c_mx_30rnd.p3d";
+	};
 };
 class CfgMagazineWells
 {
@@ -1002,7 +1029,7 @@ class CfgMagazineWells
 	};
 	class T_68MM
 	{
-		TimeyCustom[] += {"timey_20rnd_68mm_HP", "timey_20rnd_68mm_AP"};
+		TimeyCustom[] += {"timey_20rnd_68mm_HP", "timey_20rnd_68mm_AP", "timey_20rnd_68mm_ZEUS"};
 	};
 };
 class Mode_SemiAuto;
