@@ -6685,5 +6685,28 @@ class CfgVehicles
 	};
 };
 class ACE_M84FlashbangEffect {};
-
+class CfgMovesFatigue
+{
+	staminaDuration = 180;
+	staminaRestoration = 10;
+	staminaCooldown = 7;
+	aimPrecisionSpeedCoef = 5;
+	terrainDrainSprint = -1;
+	terrainDrainRun = -1;
+	terrainSpeedCoef = 0.9;
+};
+class CfgInventoryGlobalVariable
+{
+	maxSoldierLoad = 2000;
+};
+class Primary
+{
+	verticalRadius = 0.2;
+	horizontalRadius = 0.04;
+};
+class Secondary
+{
+	verticalRadius = 0.04;
+	horizontalRadius = 0.2;
+};
 
