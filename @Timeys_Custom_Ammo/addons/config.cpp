@@ -6687,9 +6687,9 @@ class CfgVehicles
 class ACE_M84FlashbangEffect {};
 class CfgMovesFatigue
 {
-	staminaDuration = 180;
-	staminaRestoration = 10;
-	staminaCooldown = 7;
+	staminaDuration = 105;
+	staminaRestoration = 5;
+	staminaCooldown = 4;
 	aimPrecisionSpeedCoef = 5;
 	terrainDrainSprint = -1;
 	terrainDrainRun = -1;
@@ -6697,7 +6697,7 @@ class CfgMovesFatigue
 };
 class CfgInventoryGlobalVariable
 {
-	maxSoldierLoad = 2000;
+	maxSoldierLoad = 1350;
 };
 class Primary
 {
