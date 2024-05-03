@@ -423,6 +423,17 @@ class CfgAmmo //velocity[m/s] * caliber * penetrability / 1000
 		caliber = 2.95;
 	};
 	class T_PLACE_TP_COMMAND : ClaymoreDirectionalMine_Remote_Ammo{};
+	class Bo_Mk82;
+	class T_PLACE_TC_COMMAND : Bo_Mk82
+	{
+		soundActivation[] = { "",0,0,0 };
+		soundDeactivation[] = { "",0,0,0 };
+		model = "\A3\Weapons_F\explosives\mine_AP_miniclaymore";
+		simulation = "shotTimeBomb";
+		ace_explosives_defuseObjectPosition[] = { 0,0,0.038 };
+		triggerWhenDestroyed = 1;
+		ace_explosives_size = 1;
+	};
 	class rhs_ammo_46x30_FMJ;
 	class rhs_ammo_762x51_M80_Ball;
 	class rhs_ammo_762x51_M61_AP;
@@ -816,6 +827,27 @@ class CfgMagazines
 			};
 		};
 	};
+	class timey_PLACE_TreeCutter : ClaymoreDirectionalMine_Remote_Mag
+	{
+		displayName = "Tree Cutting Explosive";
+		displaynameshort = "TC Explosive";
+		ammo = "T_PLACE_TP_COMMAND"
+			descriptionshort = "Tree cutting modification of the claymore, using high powered HEAT charge to bore a hole";
+		ace_explosives_DelayTime = 0;
+		picture = "\addons\UI\SLAM.paa";
+		mass = 120;
+		class ACE_Triggers
+		{
+			SupportedTriggers[] = { "Command","MK16_Transmitter",};
+			class Command
+			{
+				FuseTime = 0;
+				ammo = "T_PLACE_TC_COMMAND";
+				displayName = "Manual";
+			};
+			class MK16_Transmitter : Command {};
+		};
+	};
 	class 30Rnd_45ACP_Mag_SMG_01;
 	class timey_33rnd_9mm_FMJ : 30Rnd_45ACP_Mag_SMG_01
 	{
@@ -1133,7 +1165,7 @@ class CfgWeapons
 		class PutMuzzle : Default {};
 		class ace_explosives_muzzle : PutMuzzle
 		{
-			magazines[] = { "timey_PLACE_TP_MAG" };
+			magazines[] = { "timey_PLACE_TP_MAG", "timey_PLACE_TreeCutter"};
 		};
 	};
 	class rhs_weap_m4a1_carryhandle_mstock;
